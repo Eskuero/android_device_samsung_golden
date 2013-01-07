@@ -78,14 +78,17 @@ PRODUCT_PACKAGES := \
     Torch
 
 # Open source modules
-RODUCT_PACKAGES += \
-		e2fsck \
+PRODUCT_PACKAGES += \
 		libexifa \
 		libjpega \
 		libkeyutils \
 		libasound \
 		bcm_dut \
-		libnl 
+		libnl
+
+# Manager of partitions
+PRODUCT_PACKAGES += \
+		e2fsck
 
 # Some build.prop defines
 PRODUCT_PROPERTY_OVERRIDES += \
