@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2009, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds. -->
+<resources>
+
+<string-array name="networkAttributes">
+        <item>wifi,1,1,1,-1,true</item>
+        <item>mobile,0,0,0,-1,true</item>
+        <item>mobile_mms,2,0,2,60000,true</item>
+        <item>mobile_supl,3,0,2,60000,true</item>
+        <item>mobile_dun,4,0,2,60000,true</item>
+        <item>mobile_hipri,5,0,3,60000,true</item>
+        <item>bluetooth,7,7,2,-1,true</item>
+        <item>mobile_fota,10,0,2,60000,true</item>
+        <item>mobile_ims,11,0,2,60000,true</item>
+        <item>mobile_cbs,12,0,2,60000,true</item>
+        <item>wifi_p2p,13,1,0,-1,true</item>
+        <item>mobile_bip,17,0,2,60000,true</item>
+    </string-array>
+    <integer-array name="config_protectedNetworks">
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </integer-array>
+    <string-array name="radioAttributes">
+        <item>1,1</item>
+        <item>0,1</item>
+        <item>7,1</item>
+    </string-array>
+    <integer-array name="config_data_usage_network_types">
+        <item>0</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </integer-array>
+    <string-array name="config_tether_usb_regexs">
+        <item>rndis0</item>
+    </string-array>
+    <string-array name="config_tether_wifi_regexs">
+        <item>wlan0</item>
+    </string-array>
+    <array name="config_tether_wimax_regexs" />
+    <string-array name="config_tether_bluetooth_regexs">
+        <item>bnep\\d</item>
+    </string-array>
+    <array name="config_tether_dhcp_range" />
+    <array name="config_mobile_hotspot_provision_app" />
+    <integer-array name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>4</item>
+        <item>5</item>
+        <item>7</item>
+    </integer-array>
+    <array name="config_cdma_dun_supported_types" />
+    <array name="config_usbHostBlacklist" />
+    <array name="config_serialPorts" />
+   
+    <integer-array name="config_autoBrightnessLevels">
+        <item>15</item>
+        <item>150</item>
+        <item>1500</item>
+        <item>15000</item>
+    </integer-array>
+    <integer-array name="config_autoBrightnessHysteresisLevels">
+        <item>7</item>
+        <item>75</item>
+        <item>1000</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>20</item>
+        <item>80</item>
+        <item>130</item>
+        <item>190</item>
+        <item>255</item>
+    </integer-array>
+    <integer-array name="config_autoBrightnessButtonBacklightValues">
+        <item>255</item>
+        <item>255</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_autoBrightnessKeyboardBacklightValues">
+        <item>255</item>
+        <item>255</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_minimumExpressiveBrightnessValues">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLowHysteresisLevels">
+        <item>0</item>
+        <item>10</item>
+        <item>100</item>
+        <item>1500</item>
+        <item>10000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLowHysteresisValues">
+        <item>20</item>
+        <item>80</item>
+        <item>132</item>
+        <item>220</item>
+        <item>255</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessLevels">
+        <item>0</item>
+        <item>6</item>
+        <item>50</item>
+        <item>500</item>
+        <item>5000</item>
+        <item>15000</item>
+        <item>15000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessValues">
+        <item>20</item>
+        <item>20</item>
+        <item>80</item>
+        <item>132</item>
+        <item>220</item>
+        <item>250</item>
+        <item>255</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessHighHysteresisLevels">
+        <item>0</item>
+        <item>15</item>
+        <item>150</item>
+        <item>1500</item>
+        <item>15000</item>
+        <item>16000</item>
+    </integer-array>
+    <integer-array name="config_dynamicAutoBrightnessHighHysteresisValues">
+        <item>20</item>
+        <item>20</item>
+        <item>80</item>
+        <item>132</item>
+        <item>220</item>
+        <item>255</item>
+    </integer-array>
+
+</resources>
