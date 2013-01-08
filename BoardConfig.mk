@@ -19,7 +19,7 @@ BOARD_SDCARD_INTERNAL_DEVICE := /dev/block/mmcblk0p19
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/golden
 TARGET_KERNEL_CONFIG := golden_defconfig
-BOARD_KERNEL_CMDLINE := root=/dev/ram0 init=init rw console=ttyAMA2,115200n8 mem=256M initrd=0x800000,72M
+BOARD_KERNEL_CMDLINE := 
 TARGET_USE_ST_ERICSSON_KERNEL := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -41,6 +41,9 @@ COMMON_GLOBAL_CFLAGS += -DSTE_AUDIO
 # USB Mounting
 BOARD_UMS_LUNFILE := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
+
+# Recovery
+
 
 # Build opensource specific platform libs
 TARGET_BUILD_OPENSOURCE_LIBS := true
