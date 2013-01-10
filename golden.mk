@@ -87,6 +87,10 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/lib/modules/scsi_wait_scan.ko:root/lib/modules/scsi_wait_scan.ko \
     device/samsung/golden/prebuilt/root/lib/modules/vpnclient.ko:root/lib/modules/vpnclient.ko
 
+# Copy prebuilt kernel
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/kernel:kernel
+
 # Applications
 PRODUCT_PACKAGES := \
     Torch
