@@ -50,7 +50,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_INITRC = device/samsung/golden/recovery/init.golden.rc
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/golden/recovery/graphics.c
 
 # Build opensource specific board libs
 TARGET_BUILD_OPENSOURCE_LIBS := true
