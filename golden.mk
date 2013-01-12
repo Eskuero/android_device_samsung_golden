@@ -63,19 +63,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
 
-# Copy ramdisk scripts
+# Copy ramdisk stuff
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/init.bt.rc:root/init.bt.rc \
-    device/samsung/golden/prebuilt/root/init.samsung.rc:root/init.samsung.rc \
-    device/samsung/golden/prebuilt/root/init.samsung.usb.rc:root/init.samsung.usb.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.rc:root/init.samsunggolden.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
-    device/samsung/golden/prebuilt/root/ueventd.samsung.rc:root/ueventd.samsung.rc \
     device/samsung/golden/prebuilt/root/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc \
-    device/samsung/golden/prebuilt/root/fstab.samsunggolden:root/fstab.samsunggolden \
-    device/samsung/golden/prebuilt/root/lpm.rc:root/lpm.rc \
-    device/samsung/golden/prebuilt/root/prerecovery.rc:root/prerecovery.rc \
-    device/samsung/golden/prebuilt/root/res/recovery.do:root/res/recovery.do \
     device/samsung/golden/prebuilt/root/lib/modules/bthid.ko:root/lib/modules/bthid.ko \
     device/samsung/golden/prebuilt/root/lib/modules/dhd.ko:root/lib/modules/dhd.ko \
     device/samsung/golden/prebuilt/root/lib/modules/hwreg.ko:root/lib/modules/hwreg.ko \
