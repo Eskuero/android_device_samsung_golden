@@ -19,7 +19,13 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/golden/overlay
 $(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
 
 # Use the Dalvik VM specific for devices with 1024 MB of RAM
+ifeq ($(PLATFORM_VERSION),4.0.4)
+# Workaround to fix lunch while building recovery from ICS source code.
+$(call inherit-product, frameworks/base/build/phone-xhdpi-1024-dalvik-heap.mk)
+else
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+endif
+
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
