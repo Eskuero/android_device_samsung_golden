@@ -43,7 +43,6 @@ on fs
     # checks the factory reset triggers in sysfs and CSPSA and then formats
     # the block device belonging to /data.
     start cspsa
-    exec /system/bin/logwrapper /system/bin/factoryreset -f /sys/socinfo/reset_reason -r factory-reset -c CSPSA0 -p 0xfffffffc:31 /dev/block/mmcblk0p25
 
     # Once any factory reset is completed (this is why exec is used above) it is
     # OK to mount the remaining file system volumes.
@@ -127,14 +126,12 @@ service ta_load /system/bin/ta_loader recovery
     oneshot
 
 # block for prerecovery
-#service recovery /sbin/recovery
+service recovery /sbin/recovery
 
 service adbd /sbin/adbd recovery
-#    disabled
 
 on property:persist.service.adb.enable=1
     start adbd
 
-#on property:persist.service.adb.enable=0
-#    stop adbd
-
+on property:persist.service.adb.enable=0
+    stop adbd

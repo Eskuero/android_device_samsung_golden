@@ -48,7 +48,6 @@ on fs
     # checks the factory reset triggers in sysfs and CSPSA and then formats
     # the block device belonging to /data.
     start cspsa
-    exec /system/bin/logwrapper /system/bin/factoryreset -f /sys/socinfo/reset_reason -r factory-reset -c CSPSA0 -p 0xfffffffc:31 /dev/block/mmcblk0p5
 
 on post-fs
 
@@ -275,8 +274,6 @@ on post-fs
     # We need to decide j4fs's partition number(mmcblk0pX)
     # loke4
     mount j4fs /dev/block/mmcblk0p19 /mnt/.lfs wait
-    # loke3
-    #mount j4fs /dev/block/mmcblk0p1 /mnt/.lfs wait
 
     insmod /lib/modules/param.ko
     insmod /lib/modules/bthid.ko

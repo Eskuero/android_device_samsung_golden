@@ -35,6 +35,8 @@ on early-fs
     mkdir /efs
     mount ext4 /dev/block/mmcblk0p11 /efs nosuid nodev noatime wait
 
+    mount ext4 /dev/block/mmcblk0p25 /data wait noatime nosuid nodev noauto_da_alloc
+
 # Install Kernel Module
     # J4FS(lfs) mount points.
     mkdir /mnt 0775 root root
