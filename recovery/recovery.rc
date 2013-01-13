@@ -30,10 +30,10 @@ on init
 
 on early-fs
 
-    mount ext4 /dev/block/mmcblk0p3 /system noatime wait
+    mount ext4 /dev/block/mmcblk0p22 /system noatime wait
 
     mkdir /efs
-    mount ext4 /dev/block/mmcblk0p7 /efs nosuid nodev noatime wait
+    mount ext4 /dev/block/mmcblk0p11 /efs nosuid nodev noatime wait
 
 # Install Kernel Module
     # J4FS(lfs) mount points.
@@ -43,7 +43,7 @@ on early-fs
     insmod /lib/modules/j4fs.ko
     # We need to decide j4fs's partition number(mmcblk0pX)
     # loke4
-    mount j4fs /dev/block/mmcblk0p1 /mnt/.lfs wait
+    mount j4fs /dev/block/mmcblk0p19 /mnt/.lfs wait
 
     insmod /lib/modules/param.ko
 
@@ -61,10 +61,9 @@ service ueventd /sbin/ueventd
 service recovery /sbin/recovery
 
 service adbd /sbin/adbd recovery
-#    disabled
 
 on property:persist.service.adb.enable=1
     start adbd
 
-#on property:persist.service.adb.enable=0
-#    stop adbd
+on property:persist.service.adb.enable=0
+    stop adbd
