@@ -42,6 +42,15 @@ COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_STE := true
 
+# Wifi
+BOARD_WLAN_DEVICE := bcm4334
+WIFI_DRIVER_MODULE_PATH     := "/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_STA_PATH     := "/system/etc/wifi/bcmdhd_sta.bin_b2"
+WIFI_DRIVER_FW_AP_PATH      := "/system/etc/wifi/bcmdhd_apsta.bin_b2"
+WIFI_DRIVER_MODULE_NAME     :=  "dhd"
+WIFI_DRIVER_MODULE_ARG      :=  "firmware_path=/system/etc/wifi/bcmdhd_sta.bin_b2 nvram_path=/system/etc/wifi/nvram_net.txt"
+
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 COMMON_GLOBAL_CFLAGS += -DSTE_AUDIO
