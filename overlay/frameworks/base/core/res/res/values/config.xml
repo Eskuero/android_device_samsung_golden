@@ -84,12 +84,6 @@
         <item>1500</item>
         <item>15000</item>
     </integer-array>
-    <integer-array name="config_autoBrightnessHysteresisLevels">
-        <item>7</item>
-        <item>75</item>
-        <item>1000</item>
-        <item>10000</item>
-    </integer-array>
     <integer-array name="config_autoBrightnessLcdBacklightValues">
         <item>20</item>
         <item>80</item>
@@ -111,58 +105,4 @@
         <item>0</item>
         <item>0</item>
     </integer-array>
-    <integer-array name="config_minimumExpressiveBrightnessValues">
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLowHysteresisLevels">
-        <item>0</item>
-        <item>10</item>
-        <item>100</item>
-        <item>1500</item>
-        <item>10000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLowHysteresisValues">
-        <item>20</item>
-        <item>80</item>
-        <item>132</item>
-        <item>220</item>
-        <item>255</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessLevels">
-        <item>0</item>
-        <item>6</item>
-        <item>50</item>
-        <item>500</item>
-        <item>5000</item>
-        <item>15000</item>
-        <item>15000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessValues">
-        <item>20</item>
-        <item>20</item>
-        <item>80</item>
-        <item>132</item>
-        <item>220</item>
-        <item>250</item>
-        <item>255</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessHighHysteresisLevels">
-        <item>0</item>
-        <item>15</item>
-        <item>150</item>
-        <item>1500</item>
-        <item>15000</item>
-        <item>16000</item>
-    </integer-array>
-    <integer-array name="config_dynamicAutoBrightnessHighHysteresisValues">
-        <item>20</item>
-        <item>20</item>
-        <item>80</item>
-        <item>132</item>
-        <item>220</item>
-        <item>255</item>
-    </integer-array>
-
 </resources>
