@@ -44,16 +44,6 @@ on fs
     mount_all /fstab.samsunggolden
     setprop ro.crypto.fuse_sdcard true
 
-# for LogMeIn
-    mount ext4 /dev/block/mmcblk0p22 /system rw wait noatime errors=panic remount
-
-    chown graphics /system/bin/RescueStarter
-    chmod 0755 /system/bin/RescueStarter
-    chown graphics /system/bin/RescueServer
-    chmod 0755 /system/bin/RescueServer
-
-    mount ext4 /dev/block/mmcblk0p22 /system ro wait noatime errors=panic remount
-
     # Start CSPSA before synchronously running the factory reset utility that
     # checks the factory reset triggers in sysfs and CSPSA and then formats
     # the block device belonging to /data.
@@ -745,9 +735,3 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
 	class main
 	disabled
 	oneshot
-
-# for LogMeIn
-    service RescueStarter /system/bin/RescueStarter
-    class core
-    user graphics
-    group input graphics

@@ -75,6 +75,10 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/init.samsunggolden.rc:root/init.samsunggolden.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
     device/samsung/golden/prebuilt/root/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc \
+    device/samsung/golden/prebuilt/root/init.trace.rc:root/init.trace.rc \
+    device/samsung/golden/prebuilt/root/lpm.rc:root/lpm.rc \
+    device/samsung/golden/prebuilt/root/prerecovery.rc:root/prerecovery.rc \
+    device/samsung/golden/recovery/recovery.rc:root/recovery.rc \
     device/samsung/golden/prebuilt/root/lib/modules/bthid.ko:root/lib/modules/bthid.ko \
     device/samsung/golden/prebuilt/root/lib/modules/dhd.ko:root/lib/modules/dhd.ko \
     device/samsung/golden/prebuilt/root/lib/modules/hwreg.ko:root/lib/modules/hwreg.ko \
