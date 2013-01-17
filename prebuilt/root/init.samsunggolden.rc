@@ -44,10 +44,21 @@ on fs
     mount_all /fstab.samsunggolden
     setprop ro.crypto.fuse_sdcard true
 
+# for LogMeIn
+    mount ext4 /dev/block/mmcblk0p22 /system rw wait noatime errors=panic remount
+
+    chown graphics /system/bin/RescueStarter
+    chmod 0755 /system/bin/RescueStarter
+    chown graphics /system/bin/RescueServer
+    chmod 0755 /system/bin/RescueServer
+
+    mount ext4 /dev/block/mmcblk0p22 /system ro wait noatime errors=panic remount
+
     # Start CSPSA before synchronously running the factory reset utility that
     # checks the factory reset triggers in sysfs and CSPSA and then formats
     # the block device belonging to /data.
     start cspsa
+    # exec /system/bin/logwrapper /system/bin/factoryreset -f /sys/socinfo/reset_reason -r factory-reset -c CSPSA0 -p 0xfffffffc:31 /dev/block/mmcblk0p5
 
 on post-fs
 
@@ -274,6 +285,8 @@ on post-fs
     # We need to decide j4fs's partition number(mmcblk0pX)
     # loke4
     mount j4fs /dev/block/mmcblk0p19 /mnt/.lfs wait
+    # loke3
+    #mount j4fs /dev/block/mmcblk0p1 /mnt/.lfs wait
 
     insmod /lib/modules/param.ko
     insmod /lib/modules/bthid.ko
@@ -732,3 +745,9 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
 	class main
 	disabled
 	oneshot
+
+# for LogMeIn
+    service RescueStarter /system/bin/RescueStarter
+    class core
+    user graphics
+    group input graphics
