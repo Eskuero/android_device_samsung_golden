@@ -63,6 +63,29 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
 
+# Copy keylayout and touchscreen configs
+PRODUCT_COPY_FILES += \
+device/samsung/golden/prebuilt/system/usr/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \
+    device/samsung/golden/prebuilt/system/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
+    device/samsung/golden/prebuilt/system/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
+    device/samsung/golden/prebuilt/system/usr/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm \
+    device/samsung/golden/prebuilt/system/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/golden-kp.kl:system/usr/keylayout/golden-kp.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_04e8_Product_7021.kl:system/usr/keylayout/Vendor_04e8_Product_7021.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \
+    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \
+    device/samsung/golden/prebuilt/system/usr/idc/qwerty.idc:system/usr/idc/qwerty.idc \
+    device/samsung/golden/prebuilt/system/usr/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
+    
 # Copy ramdisk stuff
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/init.bt.rc:root/init.bt.rc \
