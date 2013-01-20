@@ -64,6 +64,7 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_INITRC = device/samsung/golden/recovery/recovery.rc
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/golden/recovery/graphics.c
 BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_CUSTOM_REBOOT := ../../../device/samsung/golden/recovery/android_reboot.c
 
 # Build opensource specific board libs
 TARGET_BUILD_OPENSOURCE_LIBS := true
