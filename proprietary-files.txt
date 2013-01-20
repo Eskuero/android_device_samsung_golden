@@ -2,8 +2,8 @@ system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt
 system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt 
 system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt 
 system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt 
-system/lib/hw/audio.primary.montblanc.so 
-system/lib/hw/audio_policy.montblanc.so  
+system/lib/hw/audio.primary.DB8520H.so 
+system/lib/hw/audio_policy.DB8520H.so  
 system/lib/lib_Samsung_Resampler.so 
 system/lib/libasound.so 
 system/lib/libsamsungSoundbooster.so  
@@ -39,7 +39,7 @@ system/lib/libsec-ril.so
 system/lib/libsecril-client.so
 system/lib/hw/gps.montblanc.so
 system/bin/bcm4334.hcd
-system/etc/wifi/bcmdhd_apsta.bin_bd2
+system/etc/wifi/bcmdhd_apsta.bin_b2
 system/etc/wifi/bcmdhd_mfg.bin_b2
 system/etc/wifi/bcmdhd_p2p.bin_b2
 system/etc/wifi/bcmdhd_sta.bin_b2
