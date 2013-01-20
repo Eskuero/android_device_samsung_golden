@@ -11,15 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 #
-# Generic key layout file for full alphabetic US English PC style external keyboards.
+# Samsung Mobile Keyboard for Android
 #
-# This file is intentionally very generic and is intended to support a broad rang of keyboards.
-# Do not edit the generic key layout to support a specific keyboard; instead, create
-# a new key layout file with the required keyboard configuration.
-#
-
 key 1     BACK
 key 2     1
 key 3     2
@@ -132,7 +126,7 @@ key 109   PAGE_DOWN
 key 110   INSERT
 key 111   FORWARD_DEL
 # key 112 "KEY_MACRO"
-key 113   MUTE
+key 113   VOLUME_MUTE
 key 114   VOLUME_DOWN
 key 115   VOLUME_UP
 key 116   POWER             WAKE
@@ -171,8 +165,7 @@ key 139   MENU              WAKE_DROPPED
 # key 149 "KEY_PROG2"
 key 150   EXPLORER
 # key 151 "KEY_MSDOS"
-# key 152 "KEY_COFFEE"
-key 152 POWER                WAKE
+key 152   POWER                WAKE
 # key 153 "KEY_DIRECTION"
 # key 154 "KEY_CYCLEWINDOWS"
 key 155   EMAIL
@@ -261,8 +254,6 @@ key 233   HEADSETHOOK
 # key 238 "KEY_KBDILLUMDOWN"
 # key 239 "KEY_KBDILLUMUP"
 # key 240 "KEY_UNKNOWN"
-
-
 key 304   BUTTON_A
 key 305   BUTTON_B
 key 306   BUTTON_C
@@ -278,8 +269,6 @@ key 315   BUTTON_START
 key 316   BUTTON_MODE
 key 317   BUTTON_THUMBL
 key 318   BUTTON_THUMBR
-
-
 # key 352 "KEY_OK"
 # key 353 "KEY_SELECT"
 # key 354 "KEY_GOTO"
@@ -345,14 +334,10 @@ key 403   CHANNEL_DOWN
 # key 413 "KEY_DIGITS"
 # key 414 "KEY_TEEN"
 # key 415 "KEY_TWEN"
-
-
 # key 448 "KEY_DEL_EOL"
 # key 449 "KEY_DEL_EOS"
 # key 450 "KEY_INS_LINE"
 # key 451 "KEY_DEL_LINE"
-
-
 key 464   FUNCTION
 key 465   ESCAPE            FUNCTION
 key 466   F1                FUNCTION
@@ -374,8 +359,6 @@ key 481   E                 FUNCTION
 key 482   F                 FUNCTION
 key 483   S                 FUNCTION
 key 484   B                 FUNCTION
-
-
 # key 497 KEY_BRL_DOT1
 # key 498 KEY_BRL_DOT2
 # key 499 KEY_BRL_DOT3
@@ -384,8 +367,6 @@ key 484   B                 FUNCTION
 # key 502 KEY_BRL_DOT6
 # key 503 KEY_BRL_DOT7
 # key 504 KEY_BRL_DOT8
-
-
 key 704 RECENTAPPS
 key 705 APPLICATION
 key 706 SIP_ON_OFF
