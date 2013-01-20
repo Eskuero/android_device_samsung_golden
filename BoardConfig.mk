@@ -1,16 +1,21 @@
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/golden/include
+TARGET_OTA_ASSERT_DEVICE := golden,i8190,GT-I8190
 
 # Platform 
 TARGET_BOARD_PLATFORM := montblanc
-TARGET_BOOTLOADER_BOARD_NAME := golden
+TARGET_BOOTLOADER_BOARD_NAME := DB8520H
+TARGET_SOC := u8500
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 # Architecture
+TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH := arm
+TARGET_ARCH_VARIANT_CPU := cortex-a9
+ARCH_ARM_HAVE_NEON := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
@@ -38,12 +43,16 @@ USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
 COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
 
+# Camera
+COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_STE := true
 
 # Wifi
 BOARD_WLAN_DEVICE := bcm4334
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 WIFI_DRIVER_MODULE_PATH     := "/lib/modules/dhd.ko"
 WIFI_DRIVER_FW_STA_PATH     := "/system/etc/wifi/bcmdhd_sta.bin_b2"
 WIFI_DRIVER_FW_AP_PATH      := "/system/etc/wifi/bcmdhd_apsta.bin_b2"
@@ -56,7 +65,8 @@ BOARD_USES_ALSA_AUDIO := true
 COMMON_GLOBAL_CFLAGS += -DSTE_AUDIO
 
 # USB Mounting
-BOARD_UMS_LUNFILE := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
+BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun%d/file"
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
