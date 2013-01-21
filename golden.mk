@@ -28,7 +28,7 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 $(call inherit-product, build/target/product/full_base_telephony.mk)
 $(call inherit-product, build/target/product/languages_full.mk)
 
-# Copy hardware specific permissions
+# Hardware specific permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
@@ -48,20 +48,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml 
 
-# Copy media configuration
+# Media configuration
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/samsung/golden/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml
 
-# Copy egl configuration
+# EGL configuration
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/lib/egl/egl.cfg:system/lib/egl/egl.cfg
 
-# Copy vold configuration
+# Vold configuration
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
 
-# Copy keylayout and touchscreen configs
+# Keylayout and touchscreen configs
 PRODUCT_COPY_FILES += \
 device/samsung/golden/prebuilt/system/usr/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \
     device/samsung/golden/prebuilt/system/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
@@ -100,26 +100,39 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko \
     device/samsung/golden/prebuilt/root/lib/modules/rng-core.ko:root/lib/modules/rng-core.ko \
     device/samsung/golden/prebuilt/root/lib/modules/scsi_wait_scan.ko:root/lib/modules/scsi_wait_scan.ko \
-    device/samsung/golden/prebuilt/root/lib/modules/vpnclient.ko:root/lib/modules/vpnclient.ko \
+    device/samsung/golden/prebuilt/root/lib/modules/vpnclient.ko:root/lib/modules/vpnclient.ko
+
+# OMXloader
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
+
+# GPS.conf
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/etc/gps.conf:system/etc/gps.conf
 
 # Applications
 PRODUCT_PACKAGES := \
-    Torch
+    Torch \
+    Galaxy4 \
+    HoloSpiralWallpaper \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    MagicSmokeWallpapers \
+    NoiseField \
+    PhaseBeam \
+    VisualizationWallpapers
 
-# Open source modules
+# Many different stuff
 PRODUCT_PACKAGES += \
-		libexifa \
-		libjpega \
-		libkeyutils \
-		libasound \
-		bcm_dut \
-		libnl
+    audio.a2dp.default \
+    libaudiohw_legacy \
+    static_busybox \
+    make_ext4fs \
+    setup_fs \
+    librs_jni \
+    e2fsck
 
-# Manager of partitions
-PRODUCT_PACKAGES += \
-		e2fsck
-
-# Some build.prop defines
+# Misc build.prop defines
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
     ro.ril.hsxpa=1 \
@@ -132,3 +145,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Define kind of DPI
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_LOCALES += hdpi
+
+# Define screen dimensions
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
