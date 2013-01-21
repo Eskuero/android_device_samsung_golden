@@ -31,7 +31,7 @@ BOARD_SDCARD_INTERNAL_DEVICE := /dev/block/mmcblk0p19
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/golden
 TARGET_KERNEL_CONFIG := golden_defconfig
-BOARD_KERNEL_CMDLINE := 
+BOARD_KERNEL_CMDLINE := root=/dev/ram0 init=init rw console=ttyAMA2,115200n8 mem=256M initrd=0x800000,72M
 TARGET_USE_ST_ERICSSON_KERNEL := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_RECOVERY_BASE := 0x00000000
@@ -47,7 +47,8 @@ COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_STE := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+USE_BLUETOOTH_SAP := true
 
 # Wifi
 BOARD_WLAN_DEVICE := bcm4334
@@ -61,11 +62,10 @@ WIFI_DRIVER_MODULE_ARG      :=  "firmware_path=/system/etc/wifi/bcmdhd_sta.bin_b
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
-COMMON_GLOBAL_CFLAGS += -DSTE_AUDIO
 
 # USB Mounting
-BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun%d/file"
+BOARD_UMS_LUNFILE := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
