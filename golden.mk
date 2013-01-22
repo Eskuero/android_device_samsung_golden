@@ -21,7 +21,7 @@ $(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
 # Use the Dalvik VM specific for devices with 1024 MB of RAM
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-# The gps config appropriate for this device
+# The GPS config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # Inherit from those products. Most specific first.
@@ -109,31 +109,31 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
 
-# GPS.conf
+# STE Modem and CSPSA
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/gps.conf:system/etc/gps.conf
+    device/samsung/golden/prebuilt/system/etc/cspsa.conf:system/etc/cspsa.conf \
+    device/samsung/golden/prebuilt/system/etc/ste_modem.sh:system/etc/ste_modem.sh
+
+# USB Init
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/bin/usbid_init.sh:system/bin/usbid_init.sh
+
+# Audio
+PRODUCT_PACKAGES := \
+    audio.a2dp.default \
+    libtinyalsa \
+    libaudioutils
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
 
 # Applications
 PRODUCT_PACKAGES := \
     Torch \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    VisualizationWallpapers
-
-# Many different stuff
-PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    libaudiohw_legacy \
-    static_busybox \
-    make_ext4fs \
-    setup_fs \
-    librs_jni \
-    e2fsck
+    Superuser \
+    com.android.future.usb.accessory
 
 # Misc build.prop defines
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -153,3 +153,6 @@ PRODUCT_LOCALES += hdpi
 # Define screen dimensions
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
+
+# We have enough storage space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
