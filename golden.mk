@@ -131,9 +131,54 @@ PRODUCT_PACKAGES += \
 
 # Applications
 PRODUCT_PACKAGES := \
-    Torch \
+    ApplicationsProvider \
+    BackupRestoreConfirmation \
+    Bluetooth \
+    Browser \
+    Calculator \
+    Calendar \
+    CalendarProvider \
+    CertInstaller \
+    Contacts \
+    ContactsProvider \
+    DefaultContainerService \
+    DeskClock \
+    DownloadProvider \
+    DownloadProviderUi \
+    DrmProvider \
+    Email \
+    Exchange2 \
+    Gallery2 \
+    HTMLViewer \
+    InputDevices \
+    KeyChain \
+    MediaProvider \
+    PackageInstaller \
+    Phone \
+    Provision \
+    Settings \
+    SettingsProvider \
+    SharedStorageBackup \
     Superuser \
-    com.android.future.usb.accessory
+    SystemUI \
+    TelephonyProvider \
+    Torch \
+    VpnDialogs \
+    WAPPushManager
+
+# Frameworks
+PRODUCT_PACKAGES := \
+    apache-xml \
+    bouncycastle \
+    bu \
+    com.android.future.usb.accessory \
+    com.android.location.provider \
+    core \
+    core-junit \
+    ext \
+    framework2 \
+    requestsync \
+    uiautomator
 
 # Misc build.prop defines
 PRODUCT_PROPERTY_OVERRIDES += \
