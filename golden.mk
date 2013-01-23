@@ -15,18 +15,18 @@
 #
 DEVICE_PACKAGE_OVERLAYS += device/samsung/golden/overlay
 
-# Inherit the proprietary vendors
-$(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
-
-# Use the Dalvik VM specific for devices with 1024 MB of RAM
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, build/target/product/full_base_telephony.mk)
+$(call inherit-product, build/target/product/languages_full.mk)
 
 # The GPS config appropriate for this device
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, build/target/product/full_base_telephony.mk)
-$(call inherit-product, build/target/product/languages_full.mk)
+# Use the Dalvik VM specific for devices with 1024 MB of RAM
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
+# Inherit the proprietary vendors
+$(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
 
 # Hardware specific permissions
 PRODUCT_COPY_FILES += \
