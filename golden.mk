@@ -119,7 +119,7 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/bin/usbid_init.sh:system/bin/usbid_init.sh
 
 # Audio
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libtinyalsa \
     libaudioutils
@@ -130,7 +130,7 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # Applications
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     Torch \
     Superuser \
     com.android.future.usb.accessory
