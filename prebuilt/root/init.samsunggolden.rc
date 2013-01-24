@@ -289,7 +289,7 @@ on post-fs
     #mount j4fs /dev/block/mmcblk0p1 /mnt/.lfs wait
 
     insmod /lib/modules/param.ko
-    insmod /lib/modules/bthid.ko
+    insmod /system/lib/modules/bthid.ko
 
     # loading exFAT-fs drivers
     insmod /lib/modules/exfat_core.ko
@@ -312,7 +312,7 @@ on post-fs-data
     mkdir /data/misc/wifi 0770 wifi system
     chmod 0770 /data/misc/wifi
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
-    chown root root /lib/modules/dhd.ko
+    chown root root /system/lib/modules/dhd.ko
 
     # give system access to ril_config
     copy -u /system/etc/ril_config /data/misc/ril_config
