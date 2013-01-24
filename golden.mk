@@ -105,7 +105,7 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/lib/modules/scsi_wait_scan.ko:root/lib/modules/scsi_wait_scan.ko \
     device/samsung/golden/prebuilt/root/lib/modules/vpnclient.ko:root/lib/modules/vpnclient.ko
 
-# OMXloader
+# OMXLoader
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
 
@@ -117,6 +117,11 @@ PRODUCT_COPY_FILES += \
 # USB Init
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/bin/usbid_init.sh:system/bin/usbid_init.sh
+
+# Audio
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/samsung/golden/prebuilt/system/vendor/etc/audio_policy.conf:system/vendor/etc/audio_policy.conf
 
 # Audio
 PRODUCT_PACKAGES += \
