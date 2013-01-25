@@ -28,6 +28,45 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 # Inherit the proprietary vendors
 $(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
 
+# Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    libtinyalsa \
+    libaudioutils
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
+
+# Applications
+PRODUCT_PACKAGES += \
+    Torch \
+    Superuser \
+    com.android.future.usb.accessory
+
+# Misc build.prop defines
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240 \
+    ro.ril.hsxpa=1 \
+    ro.ril.gprsclass=10 \
+    ro.adb.qemud=1 \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15 \
+    ro.sec.fle.encryption=true
+
+# Define kind of DPI
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_LOCALES += hdpi
+
+# Define screen dimensions
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+
+# We have enough storage space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
+
 # Hardware specific permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
@@ -107,7 +146,7 @@ PRODUCT_COPY_FILES += \
 
 # OMXLoader
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
+   # device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
 
 # STE Modem and CSPSA
 PRODUCT_COPY_FILES += \
@@ -123,41 +162,30 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
     device/samsung/golden/prebuilt/system/vendor/etc/audio_policy.conf:system/vendor/etc/audio_policy.conf
 
-# Audio
-PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    libtinyalsa \
-    libaudioutils
+# Alsa config
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/alsa.conf:system/system/usr/share/alsa/alsa.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/cards/aliases.conf:system/system/usr/share/alsa/cards/aliases.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/center_lfe.conf:system/system/usr/share/alsa/pcm/center_lfe.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/default.conf:system/system/usr/share/alsa/pcm/default.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dmix.conf:system/system/usr/share/alsa/pcm/dmix.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dpl.conf:system/system/usr/share/alsa/pcm/dpl.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dsnoop.conf:system/system/usr/share/alsa/pcm/dsnoop.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/front.conf:system/system/usr/share/alsa/pcm/front.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/iec958.conf:system/system/usr/share/alsa/pcm/iec958.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/modem.conf:system/system/usr/share/alsa/pcm/modem.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/rear.conf:system/system/usr/share/alsa/pcm/rear.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/side.conf:system/system/usr/share/alsa/pcm/side.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround40.conf:system/system/usr/share/alsa/pcm/surround40.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround41.conf:system/system/usr/share/alsa/pcm/surround41.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround50.conf:system/system/usr/share/alsa/pcm/surround50.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround51.conf:system/system/usr/share/alsa/pcm/surround51.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround71.conf:system/system/usr/share/alsa/pcm/surround71.conf
 
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    make_ext4fs \
-    setup_fs
+# LVVEFS config
+PRODUCT_COPY_FILES += \
+    vendor/samsung/golden/proprietary/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt:system/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt \
+    vendor/samsung/golden/proprietary/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt:system/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt \
+    vendor/samsung/golden/proprietary/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt:system/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt \
+    vendor/samsung/golden/proprietary/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt:system/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt
 
-# Applications
-PRODUCT_PACKAGES += \
-    Torch \
-    Superuser \
-    com.android.future.usb.accessory
-
-# Misc build.prop defines
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=240 \
-    ro.ril.hsxpa=1 \
-    ro.ril.gprsclass=10 \
-    ro.adb.qemud=1 \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15 \
-    ro.sec.fle.encryption=true
-
-# Define kind of DPI
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-PRODUCT_LOCALES += hdpi
-
-# Define screen dimensions
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
-
-# We have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
