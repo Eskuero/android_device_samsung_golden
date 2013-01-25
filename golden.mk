@@ -184,8 +184,8 @@ PRODUCT_COPY_FILES += \
 
 # LVVEFS config
 PRODUCT_COPY_FILES += \
-    vendor/samsung/golden/proprietary/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt:system/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt \
-    vendor/samsung/golden/proprietary/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt:system/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt \
-    vendor/samsung/golden/proprietary/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt:system/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt \
-    vendor/samsung/golden/proprietary/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt:system/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt
+    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt:system/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt \
+    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt:system/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt \
+    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt:system/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt \
+    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt:system/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt
 
