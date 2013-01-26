@@ -8,11 +8,13 @@ on init
     export LD_LIBRARY_PATH /vendor/lib:/system/lib
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
-    export EXTERNAL_STORAGE /sdcard
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1
 
     symlink /system/etc /etc
 
-    mkdir /sdcard
+    mkdir /storage/sdcard0
+    mkdir /storage/sdcard1
     mkdir /preload
     mkdir /system
     mkdir /modemfs 0771 system system
