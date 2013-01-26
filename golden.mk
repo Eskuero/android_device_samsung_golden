@@ -164,28 +164,28 @@ PRODUCT_COPY_FILES += \
 
 # Alsa config
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/alsa.conf:system/system/usr/share/alsa/alsa.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/cards/aliases.conf:system/system/usr/share/alsa/cards/aliases.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/center_lfe.conf:system/system/usr/share/alsa/pcm/center_lfe.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/default.conf:system/system/usr/share/alsa/pcm/default.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dmix.conf:system/system/usr/share/alsa/pcm/dmix.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dpl.conf:system/system/usr/share/alsa/pcm/dpl.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dsnoop.conf:system/system/usr/share/alsa/pcm/dsnoop.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/front.conf:system/system/usr/share/alsa/pcm/front.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/iec958.conf:system/system/usr/share/alsa/pcm/iec958.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/modem.conf:system/system/usr/share/alsa/pcm/modem.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/rear.conf:system/system/usr/share/alsa/pcm/rear.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/side.conf:system/system/usr/share/alsa/pcm/side.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround40.conf:system/system/usr/share/alsa/pcm/surround40.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround41.conf:system/system/usr/share/alsa/pcm/surround41.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround50.conf:system/system/usr/share/alsa/pcm/surround50.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround51.conf:system/system/usr/share/alsa/pcm/surround51.conf \
-    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround71.conf:system/system/usr/share/alsa/pcm/surround71.conf
+    device/samsung/golden/prebuilt/system/usr/share/alsa/alsa.conf:system/usr/share/alsa/alsa.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/cards/aliases.conf:system/usr/share/alsa/cards/aliases.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/center_lfe.conf:system/usr/share/alsa/pcm/center_lfe.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/default.conf:system/usr/share/alsa/pcm/default.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dmix.conf:system/usr/share/alsa/pcm/dmix.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dpl.conf:system/usr/share/alsa/pcm/dpl.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/dsnoop.conf:system/usr/share/alsa/pcm/dsnoop.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/front.conf:system/usr/share/alsa/pcm/front.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/iec958.conf:system/usr/share/alsa/pcm/iec958.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/modem.conf:system/usr/share/alsa/pcm/modem.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/rear.conf:system/usr/share/alsa/pcm/rear.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/side.conf:system/usr/share/alsa/pcm/side.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround40.conf:system/usr/share/alsa/pcm/surround40.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround41.conf:system/usr/share/alsa/pcm/surround41.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround50.conf:system/usr/share/alsa/pcm/surround50.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
+    device/samsung/golden/prebuilt/system/usr/share/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf
 
 # LVVEFS config
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt:system/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt \
-    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt:system/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt \
-    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt:system/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt \
-    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt:system/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt
+    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt:system/etc/LVVEFS_tuning_parameters/LVVEFS_Rx_Configuration.txt \
+    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt:system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt \
+    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt:system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt \
+    device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt:system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt
 
