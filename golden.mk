@@ -135,14 +135,8 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/init.trace.rc:root/init.trace.rc \
     device/samsung/golden/prebuilt/root/lpm.rc:root/lpm.rc \
     device/samsung/golden/prebuilt/root/fstab.samsunggolden:root/fstab.samsunggolden \
-    device/samsung/golden/prebuilt/root/lib/modules/bthid.ko:root/lib/modules/bthid.ko \
-    device/samsung/golden/prebuilt/root/lib/modules/dhd.ko:root/lib/modules/dhd.ko \
-    device/samsung/golden/prebuilt/root/lib/modules/hwreg.ko:root/lib/modules/hwreg.ko \
     device/samsung/golden/prebuilt/root/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
-    device/samsung/golden/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko \
-    device/samsung/golden/prebuilt/root/lib/modules/rng-core.ko:root/lib/modules/rng-core.ko \
-    device/samsung/golden/prebuilt/root/lib/modules/scsi_wait_scan.ko:root/lib/modules/scsi_wait_scan.ko \
-    device/samsung/golden/prebuilt/root/lib/modules/vpnclient.ko:root/lib/modules/vpnclient.ko
+    device/samsung/golden/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko
 
 # OMXLoader
 PRODUCT_COPY_FILES += \
