@@ -38,8 +38,6 @@ BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
 
 # Graphics
 USE_OPENGL_RENDERER := true
-BOARD_USES_HWCOMPOSER := true
-BOARD_USES_FIMGAPI := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
 
 # Camera
@@ -53,7 +51,7 @@ USE_BLUETOOTH_SAP := true
 
 # Wifi
 BOARD_WLAN_DEVICE := bcmdhd
-BOARD_WLAN_DEVICE_REV := bcm4334
+BOARD_WLAN_DEVICE_REV := bcmdhd
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
@@ -64,8 +62,6 @@ WIFI_DRIVER_FW_STA_PATH := "/system/etc/wifi/bcmdhd_sta.bin_b2"
 WIFI_DRIVER_FW_AP_PATH := "/system/etc/wifi/bcmdhd_apsta.bin_b2"
 WIFI_DRIVER_MODULE_NAME := "dhd"
 WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin_b2 nvram_path=/system/etc/wifi/nvram_net.txt"
-WIFI_BAND := 802_11_ABG
-BOARD_LEGACY_NL80211_STA_EVENTS := true
 
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
