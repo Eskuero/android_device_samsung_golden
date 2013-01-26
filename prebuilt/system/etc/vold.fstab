@@ -14,44 +14,5 @@
 ######################
 #storage_struct = series, "/mnt/sdcard/extStorages"
 #storage_struct = parallel
-{
-	supported_exfat = disable
-}
+
 dev_mount sdcard /storage/extSdCard auto /devices/sdi0/mmc_host/mmc1/mmc1
-
-#usb host device 
-{
-	media_type = usb
-}
-dev_mount sda /storage/UsbDriveA auto /devices/platform/msm_hsusb_host.0
-
-#usb host device 
-{
-	media_type = usb
-}
-dev_mount sdb /storage/UsbDriveB auto /devices/platform/msm_hsusb_host.0
-
-#usb host device 
-{
-	media_type = usb
-}
-dev_mount sdc /storage/UsbDriveC auto /devices/platform/msm_hsusb_host.0
-
-#usb host device 
-{
-	media_type = usb
-}
-dev_mount sdd /storage/UsbDriveD auto /devices/platform/msm_hsusb_host.0
-
-#usb host device 
-{
-	media_type = usb
-}
-dev_mount sde /storage/UsbDriveE auto /devices/platform/msm_hsusb_host.0
-
-#usb host device 
-{
-	media_type = usb
-}
-dev_mount sdf /storage/UsbDriveF auto /devices/platform/msm_hsusb_host.0
-#EOF
