@@ -149,6 +149,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/bin/usbid_init.sh:system/bin/usbid_init.sh
 
+# Wifi
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
 # Audio
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
