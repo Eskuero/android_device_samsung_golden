@@ -15,4 +15,8 @@
 #storage_struct = series, "/mnt/sdcard/extStorages"
 #storage_struct = parallel
 
-dev_mount sdcard /storage/sdcard0 auto /devices/sdi0/mmc_host/mmc1/mmc1
+# External SDCard
+dev_mount external_sd /storage/sdcard0 auto /devices/sdi0/mmc_host/mmc1/mmc1
+
+# Internal EMMC Card
+dev_mount sdcard /storage/sdcard1 auto /devices/sdi1/mmc_host/mmc2/mmc2
