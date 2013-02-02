@@ -55,7 +55,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.adb.qemud=1 \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
-    ro.sec.fle.encryption=true
+    ro.sec.fle.encryption=true \
+    persist.sys.usb.config=mass_storage,adb \
+    persist.service.adb.enable=1
 
 # Define kind of DPI
 PRODUCT_AAPT_CONFIG := normal hdpi
