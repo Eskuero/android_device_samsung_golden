@@ -31,6 +31,8 @@ $(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
+    audio.usb.default \
+    audio.tms.default \
     libtinyalsa \
     libaudioutils
 
