@@ -39,6 +39,9 @@ BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
+BOARD_USES_HWCOMPOSER := true
+BOARD_USE_SYSFS_VSYNC_NOTIFICATION := true
+BOARD_EGL_NEEDS_LEGACY_FB := true
 
 # Camera
 BOARD_USES_PROPRIETARY_LIBCAMERA := true
