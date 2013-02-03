@@ -52,13 +52,6 @@ on fs
 # for LogMeIn
     mount ext4 /dev/block/mmcblk0p22 /system rw wait noatime errors=panic remount
 
-    chown graphics /system/bin/RescueStarter
-    chmod 0755 /system/bin/RescueStarter
-    chown graphics /system/bin/RescueServer
-    chmod 0755 /system/bin/RescueServer
-
-    mount ext4 /dev/block/mmcblk0p22 /system ro wait noatime errors=panic remount
-
     # Start CSPSA before synchronously running the factory reset utility that
     # checks the factory reset triggers in sysfs and CSPSA and then formats
     # the block device belonging to /data.
@@ -290,8 +283,6 @@ on post-fs
     # We need to decide j4fs's partition number(mmcblk0pX)
     # loke4
     mount j4fs /dev/block/mmcblk0p19 /mnt/.lfs wait
-    # loke3
-    #mount j4fs /dev/block/mmcblk0p1 /mnt/.lfs wait
 
     insmod /lib/modules/param.ko
     insmod /system/lib/modules/bthid.ko
@@ -555,11 +546,7 @@ service modem /system/bin/sh /system/etc/ste_modem.sh
 #    group radio
 
 # Modem-supervisor
-#service modem-supervisor /system/bin/modem-supervisor -r -f /dev/dbx500_mloader_fw -i /sys/devices/platform/ab8505-i2c.0/chip_id,/sys/devices/platform/ab8500-i2c.0/chip_id -c monitor
 service modem-supervisor /system/bin/modem-supervisor -f /dev/dbx500_mloader_fw -i /sys/devices/platform/ab8505-i2c.0/chip_id,/sys/devices/platform/ab8500-i2c.0/chip_id -c monitor
-#service modem-supervisor /system/bin/modem-supervisor -r -f /dev/dbx500_mloader_fw -i /sys/devices/platform/ab8505-i2c.0/chip_id,/sys/devices/platform/ab8500-i2c.0/chip_id -m /modemfs/BINARIES/ -c monitor
-#service modem-supervisor /system/bin/modem-supervisor -r -f /dev/dbx500_mloader_fw -i /sys/devices/platform/ab8505-i2c.0/chip_id,/sys/devices/platform/ab8500-i2c.0/chip_id -b /dev/block/mmcblk0p15 -M /dev/block/mmcblk0p16 -c monitor
-#service modem-supervisor /system/bin/modem-supervisor -f /dev/dbx500_mloader_fw -i /sys/devices/platform/ab8505-i2c.0/chip_id,/sys/devices/platform/ab8500-i2c.0/chip_id -b /dev/block/mmcblk0p15 -M /dev/block/mmcblk0p16 -c monitor
     class modem-u8500
     user root
 
@@ -584,10 +571,6 @@ service stedump /system/bin/logwrapper /system/bin/stedump
     class main
     user root
 
-#service hdmid /system/bin/hdmid
-#    class main
-#    socket hdmid stream 0660 root system graphics
-#    oneshot
 
 # start GPS daemon
 #service gpsd /system/bin/gpsd -c /system/etc/gps.xml
@@ -759,9 +742,3 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
 	class main
 	disabled
 	oneshot
-
-# for LogMeIn
-    service RescueStarter /system/bin/RescueStarter
-    class core
-    user graphics
-    group input graphics
