@@ -6,11 +6,13 @@ on init
     export LD_LIBRARY_PATH /vendor/lib:/system/lib
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
-    export EXTERNAL_STORAGE /sdcard
+    export EXTERNAL_STORAGE /sdcard0
+    export SECONDARY_STORAGE /sdcard1
 
     symlink /system/etc /etc
 
-    mkdir /sdcard
+    mkdir /sdcard0
+    mkdir /sdcard1
     mkdir /preload
     mkdir /system
     mkdir /data
@@ -135,6 +137,5 @@ service adbd /sbin/adbd recovery
 on property:persist.service.adb.enable=1
     start adbd
 
-#on property:persist.service.adb.enable=0
-#    stop adbd
-
+on property:persist.service.adb.enable=0
+    stop adbd
