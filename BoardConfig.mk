@@ -1,22 +1,24 @@
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/golden/include
 TARGET_OTA_ASSERT_DEVICE := golden,i8190,GT-I8190
 
-# Platform 
-TARGET_BOARD_PLATFORM := montblanc
+# Board
 TARGET_BOOTLOADER_BOARD_NAME := DB8520H
-TARGET_SOC := u8500
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+# Platform 
+TARGET_BOARD_PLATFORM := montblanc
+TARGET_SOC := u8500
+BOARD_USES_STE_HARDWARE := true
+
 # Architecture
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
-TARGET_ARCH_VARIANT_CPU := cortex-a9
-ARCH_ARM_HAVE_NEON := true
+TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CPU_SMP := true
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 # Partitions
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
@@ -40,12 +42,10 @@ BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
 BOARD_USES_HWCOMPOSER := true
-BOARD_USE_SYSFS_VSYNC_NOTIFICATION := true
-BOARD_EGL_NEEDS_LEGACY_FB := true
+COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE -DSTE_HDMI
 
 # Camera
-BOARD_USES_PROPRIETARY_LIBCAMERA := true
-COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
+USE_CAMERA_STUB := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -53,40 +53,32 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 USE_BLUETOOTH_SAP := true
 
 # Wifi
-BOARD_WLAN_DEVICE                := bcmdhd
-BOARD_WLAN_DEVICE_REV            := bcm4334_B2
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WLAN_DEVICE := bcmdhd
+BOARD_WLAN_DEVICE_REV := bcm4334_B2
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin_b2"
-WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin_b2"
-WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/wifi/bcmdhd_p2p.bin_b2"
-WIFI_DRIVER_MODULE_NAME          := "dhd"
-WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin_b2 nvram_path=/system/etc/wifi/nvram_net.txt_GPIO4"
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/wifi/bcmdhd_sta.bin_b2"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/wifi/bcmdhd_apsta.bin_b2"
+WIFI_DRIVER_FW_PATH_P2P := "/system/etc/wifi/bcmdhd_p2p.bin_b2"
+WIFI_DRIVER_MODULE_NAME := "dhd"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin_b2 nvram_path=/system/etc/wifi/nvram_net.txt_GPIO4"
 WIFI_DRIVER_MODULE_AP_ARG        := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin_b2 nvram_path=/system/etc/wifi/nvram_net.txt_GPIO4"
-WIFI_BAND                        := 802_11_ABG
-BOARD_HAVE_SAMSUNG_WIFI          := true
+WIFI_BAND := 802_11_ABG
+BOARD_HAVE_SAMSUNG_WIFI := true
 
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
+COMMON_GLOBAL_CFLAGS += -DSTE_AUDIO
 
 # USB Mounting
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun%d/file"
-
-# Vold
-BOARD_VOLD_MAX_PARTITIONS := 25
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
-
-# RIL
-BOARD_USES_LIBSECRIL_STUB := true
-BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
