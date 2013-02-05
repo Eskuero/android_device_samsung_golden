@@ -49,7 +49,6 @@ PRODUCT_PACKAGES += \
 
 # Misc build.prop defines
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=240 \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10 \
     ro.adb.qemud=1 \
