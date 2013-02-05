@@ -128,6 +128,7 @@ device/samsung/golden/prebuilt/system/usr/keychars/Generic.kcm:system/usr/keycha
     
 # Copy ramdisk stuff
 PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/root/init.rc:root/init.rc \
     device/samsung/golden/prebuilt/root/init.bt.rc:root/init.bt.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.rc:root/init.samsunggolden.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
@@ -187,4 +188,3 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt:system/etc/LVVEFS_tuning_parameters/LVVEFS_Tx_Configuration.txt \
     device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt:system/etc/LVVEFS_tuning_parameters/Rx_ControlParams_SPEAKER_WB.txt \
     device/samsung/golden/prebuilt/system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt:system/etc/LVVEFS_tuning_parameters/Tx_ControlParams_SPEAKER_WB.txt
-
