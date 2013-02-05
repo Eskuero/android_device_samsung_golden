@@ -3,7 +3,7 @@
 ## 
 
 #######################
-## Regular device mount
+## Regular devicemount
 ##
 ## Format: dev_mount <label> <mount_point> <part> <sysfs_path1...> 
 ## label        - Label for the volume
@@ -15,8 +15,26 @@
 #storage_struct = series, "/mnt/sdcard/extStorages"
 #storage_struct = parallel
 
-# External SDCard
-dev_mount external_sd /storage/sdcard0 auto /devices/sdi0/mmc_host/mmc1/mmc1
-
 # Internal EMMC Card
-dev_mount sdcard /storage/sdcard1 auto /devices/sdi1/mmc_host/mmc2/mmc2
+dev_mount sdcard0 /storage/sdcard0 8 /devices/sdi2/mmc_host/mmc0/mmc0
+
+# External SDCard
+dev_mount sdcard1 /storage/sdcard1 auto /devices/sdi0/mmc_host/mmc1/mmc1
+
+# USB Host Device
+dev_mount sda /storage/UsbDriveA auto /devices/platform/msm_hsusb_host.0
+
+# USB Host Device
+dev_mount sdb /storage/UsbDriveB auto /devices/platform/msm_hsusb_host.0
+
+# USB Host Device
+dev_mount sdc /storage/UsbDriveC auto /devices/platform/msm_hsusb_host.0
+
+# USB Host Device
+dev_mount sdd /storage/UsbDriveD auto /devices/platform/msm_hsusb_host.0
+
+# USB Host Device
+dev_mount sde /storage/UsbDriveE auto /devices/platform/msm_hsusb_host.0
+
+# USB Host Device
+dev_mount sdf /storage/UsbDriveF auto /devices/platform/msm_hsusb_host.0

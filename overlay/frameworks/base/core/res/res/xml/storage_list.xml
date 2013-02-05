@@ -34,16 +34,46 @@
 
 <StorageList xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <storage android:mountPoint="/storage/sdcard1" 
+    <storage android:mountPoint="/storage/sdcard0" 
              android:storageDescription="@string/storage_internal" 
              android:primary="true" 
              android:emulated="true" 
              android:mtpReserve="100"
              android:allowMassStorage="true" />
 
-    <storage android:mountPoint="/storage/sdcard0"
+    <storage android:mountPoint="/storage/sdcard1"
              android:storageDescription="@string/storage_sd_card"
              android:primary="false"
              android:removable="true" 
              android:allowMassStorage="true" />
+
+    <storage android:mountPoint="/storage/UsbDriveA"
+             android:storageDescription="@string/storage_usb"
+             android:removable="true"
+             android:subsystem="usb" />
+
+    <storage android:mountPoint="/storage/UsbDriveB"
+             android:storageDescription="@string/storage_usb"
+             android:removable="true"
+             android:subsystem="usb" />
+
+    <storage android:mountPoint="/storage/UsbDriveC"
+             android:storageDescription="@string/storage_usb"
+             android:removable="true"
+             android:subsystem="usb" />
+
+    <storage android:mountPoint="/storage/UsbDriveD"
+             android:storageDescription="@string/storage_usb"
+             android:removable="true"
+             android:subsystem="usb" />
+
+    <storage android:mountPoint="/storage/UsbDriveE"
+             android:storageDescription="@string/storage_usb"
+             android:removable="true"
+             android:subsystem="usb" />
+
+    <storage android:mountPoint="/storage/UsbDriveF"
+             android:storageDescription="@string/storage_usb"
+             android:removable="true"
+             android:subsystem="usb" />
 </StorageList>
