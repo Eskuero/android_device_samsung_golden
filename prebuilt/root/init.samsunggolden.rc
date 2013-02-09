@@ -435,8 +435,6 @@ service console /system/bin/sh
     class core
     console
     disabled
-#    user shell
-#    group log
 
 service netd /system/bin/netd
     class main
@@ -449,12 +447,6 @@ service media /system/bin/logwrapper /system/bin/mediaserver
     user media
     group system audio camera inet net_bt net_bt_admin net_bw_acct drmrpc sdcard_rw sdcard_r
     ioprio rt 4
-
-service powersnd /system/bin/samsungpowersoundplay
-    class main
-    user media
-    group system
-    oneshot
 
 service dbus /system/bin/logwrapper /system/bin/dbus-daemon --system --nofork
     class main
@@ -480,6 +472,11 @@ service cspsa /system/bin/logwrapper /system/bin/cspsa-server
     user root
     oneshot
 
+# init Phonet net device required for Phonet communication with Modem
+service phonet-netdev /system/bin/ifconfig upnlink0 up
+    class main
+    oneshot
+
 # Copy RF trim data from CSPSA, and start the Modem Storage Agent (MSA) service
 service modem /system/bin/sh /system/etc/ste_modem.sh
     class modem-u8500
@@ -503,7 +500,7 @@ service modem_log_relay /system/bin/modem_log_relay --ctrl_port=2001 --data_port
 
 service admsrv /system/bin/logwrapper /system/bin/admsrv
     class main
-    user audio
+    user root
     group system audio inet net_bt net_bt_admin net_raw shell log
     ioprio rt 4
     capability NET_ADMIN NET_RAW SYS_NICE
@@ -533,10 +530,6 @@ service ta_load /system/bin/ta_loader
 service at_distributor /system/bin/at_distributor
     user root
     group radio log
-
-service watchdog-kicker /system/xbin/watchdog-kicker -d /dev/watchdog -t 120
-    class main
-    oneshot
 
 service battery_params /system/xbin/battery_params
     class main
