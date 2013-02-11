@@ -47,6 +47,10 @@ PRODUCT_PACKAGES += \
     Superuser \
     com.android.future.usb.accessory
 
+# FM
+PRODUCT_PACKAGES += \
+    FmRadioReceiver
+
 # Misc build.prop defines
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsxpa=1 \
@@ -88,7 +92,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml 
+    frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
+    frameworks/native/data/etc/com.stericsson.hardware.fm.receiver.xml:system/etc/permissions/com.stericsson.hardware.fm.receiver.xml
 
 # Media configuration
 PRODUCT_COPY_FILES += \

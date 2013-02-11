@@ -10,6 +10,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := montblanc
 TARGET_SOC := u8500
 BOARD_USES_STE_HARDWARE := true
+COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
 
 # Architecture
 TARGET_CPU_ABI := armeabi-v7a
@@ -42,7 +43,6 @@ BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
 BOARD_USES_HWCOMPOSER := true
-COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
 
 # Camera
 USE_CAMERA_STUB := true
@@ -75,6 +75,10 @@ BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
 COMMON_GLOBAL_CFLAGS += -DSTE_AUDIO
+
+# FM Radio
+BOARD_USES_STE_FMRADIO := true
+COMMON_GLOBAL_CFLAGS += -DSTE_FM
 
 # USB Mounting
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
