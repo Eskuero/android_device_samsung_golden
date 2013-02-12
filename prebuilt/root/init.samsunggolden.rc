@@ -526,11 +526,6 @@ service ta_load /system/bin/ta_loader
     user root
     group radio
 
-# AT Distributor for factory test
-service at_distributor /system/bin/at_distributor
-    user root
-    group radio log
-
 service battery_params /system/xbin/battery_params
     class main
     oneshot
