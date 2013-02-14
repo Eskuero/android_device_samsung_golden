@@ -164,7 +164,7 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/samsung/golden/prebuilt/system/vendor/etc/audio_policy.conf:system/vendor/etc/audio_policy.conf
+    device/samsung/golden/prebuilt/system/etc/asound.conf:system/etc/asound.conf
 
 # Alsa config
 PRODUCT_COPY_FILES += \
