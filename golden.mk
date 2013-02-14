@@ -52,6 +52,7 @@ PRODUCT_PACKAGES += \
 
 # Misc build.prop defines
 PRODUCT_PROPERTY_OVERRIDES += \
+    mobiledata.interfaces=svnet0,pdp0,wlan0,gprs,ppp0 \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10 \
     ro.adb.qemud=1 \
