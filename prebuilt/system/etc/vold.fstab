@@ -20,21 +20,3 @@ dev_mount sdcard0 /storage/sdcard0 8 /devices/sdi2/mmc_host/mmc0/mmc0
 
 # External SDCard
 dev_mount sdcard1 /storage/sdcard1 auto /devices/sdi0/mmc_host/mmc1/mmc1
-
-# USB Host Device
-dev_mount sda /storage/UsbDriveA auto /devices/platform/msm_hsusb_host.0
-
-# USB Host Device
-dev_mount sdb /storage/UsbDriveB auto /devices/platform/msm_hsusb_host.0
-
-# USB Host Device
-dev_mount sdc /storage/UsbDriveC auto /devices/platform/msm_hsusb_host.0
-
-# USB Host Device
-dev_mount sdd /storage/UsbDriveD auto /devices/platform/msm_hsusb_host.0
-
-# USB Host Device
-dev_mount sde /storage/UsbDriveE auto /devices/platform/msm_hsusb_host.0
-
-# USB Host Device
-dev_mount sdf /storage/UsbDriveF auto /devices/platform/msm_hsusb_host.0

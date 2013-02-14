@@ -56,8 +56,6 @@ ste.cam.ext.cfg.path.secondary=/system/usr/share/camera/config_file/aptina_mt9v1
 # STE: Default trace configuration
 ste.omx.ctx=0
 
-net.streaming.rtsp.uaprof=http://wap.samsungmobile.com/uaprof/
-
 persist.fuse_sdcard=true
 
 #
