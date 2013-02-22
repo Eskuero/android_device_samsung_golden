@@ -62,15 +62,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage,adb \
     persist.service.adb.enable=1
 
-# Define kind of DPI
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-PRODUCT_LOCALES += hdpi
-
-# Define screen dimensions
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
-
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -147,7 +138,7 @@ PRODUCT_COPY_FILES += \
 
 # OMXLoader
 PRODUCT_COPY_FILES += \
-   # device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
+    device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
 
 # STE Modem and CSPSA
 PRODUCT_COPY_FILES += \
