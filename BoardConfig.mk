@@ -44,9 +44,6 @@ USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
 BOARD_USES_HWCOMPOSER := true
 
-# Camera
-USE_CAMERA_STUB := true
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
