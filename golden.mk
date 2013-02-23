@@ -62,6 +62,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage,adb \
     persist.service.adb.enable=1
 
+# Define kind of DPI
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_LOCALES += hdpi
+
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 

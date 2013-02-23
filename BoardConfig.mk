@@ -45,9 +45,6 @@ BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
 BOARD_USES_HWCOMPOSER := true
 
 # Screen
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-PRODUCT_LOCALES += hdpi
 TARGET_SCREEN_HEIGHT := 800
 TARGET_SCREEN_WIDTH := 480
 
