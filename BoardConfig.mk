@@ -90,6 +90,9 @@ COMMON_GLOBAL_CFLAGS += -DSTE_FM
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun%d/file"
 
+# Vold
+BOARD_VOLD_MAX_PARTITIONS := 25
+
 # Recovery
 TARGET_PROVIDES_INIT_RC := true
 BOARD_HAS_NO_SELECT_BUTTON := true
