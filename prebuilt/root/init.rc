@@ -580,3 +580,7 @@ on nonencrypted
 
 on property:vold.decrypt=trigger_restart_framework
     setprop ro.fuse_sdcard ${persist.fuse_sdcard}
+
+service macloader /system/bin/macloader
+    class main
+    oneshot
