@@ -48,7 +48,6 @@ on fs
     # checks the factory reset triggers in sysfs and CSPSA and then formats
     # the block device belonging to /data.
     start cspsa
-    # exec /system/bin/logwrapper /system/bin/factoryreset -f /sys/socinfo/reset_reason -r factory-reset -c CSPSA0 -p 0xfffffffc:31 /dev/block/mmcblk0p5
 
 on post-fs
 
@@ -520,11 +519,6 @@ service atd /system/bin/at_core -mode normal -serial ttyAMA2
     class modem
     user root
     group radio audio
-
-# TA Loader
-service ta_load /system/bin/ta_loader
-    user root
-    group radio
 
 service battery_params /system/xbin/battery_params
     class main
