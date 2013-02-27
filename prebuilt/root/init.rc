@@ -325,8 +325,12 @@ on boot
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
 
     # Assume SMP uses shared cpufreq policy for all CPUs
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/leds/keyboard-backlight/brightness
@@ -390,6 +394,9 @@ on boot
 # Set this property so surfaceflinger is not started by system_init
     setprop system_init.startsurfaceflinger 0
 
+# Run sysinit
+    exec /system/bin/sysinit
+
     class_start core
     class_start main
 
@@ -401,7 +408,7 @@ on nonencrypted
 
 # SISO-ANDR-PERF :: START Changing governor to interactive and scheduler to cfq after boot complete
 on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor	ondemand
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor	conservative
     write /sys/block/mmcblk0/queue/scheduler cfq
 # SISO-ANDR-PERF :: END HERE
 
@@ -580,7 +587,3 @@ on nonencrypted
 
 on property:vold.decrypt=trigger_restart_framework
     setprop ro.fuse_sdcard ${persist.fuse_sdcard}
-
-service macloader /system/bin/macloader
-    class main
-    oneshot

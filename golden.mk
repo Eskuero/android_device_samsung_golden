@@ -52,7 +52,7 @@ PRODUCT_PACKAGES += \
 
 # Misc build.prop defines
 PRODUCT_PROPERTY_OVERRIDES += \
-    mobiledata.interfaces=svnet0,pdp0,wlan0,gprs,ppp0 \
+    mobiledata.interfaces=rmnet0,rmnet1,rmnet2,ppp0,gprs \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10 \
     ro.adb.qemud=1 \
@@ -96,6 +96,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/samsung/golden/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml
+
+# Dbus
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/etc/dbus.conf:system/etc/dbus.conf
 
 # EGL configuration
 PRODUCT_COPY_FILES += \
