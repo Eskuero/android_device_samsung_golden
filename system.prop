@@ -1,23 +1,36 @@
+###########
+### RIL ###
+###########
 rild.libpath=/system/lib/libsec-ril.so
 rild.libargs=-d /dev/ttyS0
+mobiledata.interfaces=rmnet0,rmnet1,rmnet2,gprs,ppp0
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
 
-# Graphics related configurations
-ro.sf.lcd_density=240
-ro.sf.display_rotation=0
+# STE: UNSOL_CALL_RING is only sent once from RIL.
+# Android needs to generate more rings if needed.
+ro.telephony.call_ring.multiple=false
 
-# System property for Default Brightness
-ro.lcd_brightness=170
-ro.lcd_min_brightness=30
+###########
+### USB ###
+###########
+ro.adb.qemud=1
+persist.sys.usb.config=mtp,adb
+persist.service.adb.enable=1
+persist.fuse_sdcard=true
 
+############
+### Wifi ###
+############
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=15
+
+###################
+### H/W Display ###
+###################
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number
 ro.opengles.version=131072
-
-# Enable RecoverySystem to emit "factory-reset" reset string
-# instead of "recovery" when doing a factory reset. This is
-# useful when implementing factory reset without the entire
-# recovery framework.
-ro.factoryresetwithoutrecovery=true
 
 # debug.sf.hw=0 Use b2r2 as compositor in SurfaceFlinger
 # debug.sf.hw=1 Use Mali as compositor in SurfaceFlinger
@@ -28,15 +41,24 @@ debug.sf.hw=1
 # such as Mali.
 debug.hwui.render_dirty_regions=false
 
+##############
+### Screen ###
+##############
+ro.sf.lcd_density=240
+ro.sf.display_rotation=0
+
+# System property for Default Brightness
+ro.lcd_brightness=170
+ro.lcd_min_brightness=30
+
+#######################
+### STE Definitions ###
+#######################
 # STE: Low power audio - enable ULP mode
 ste.nmf.autoidle=1
 
 # STE: Address of DBus STE bus
 ste.dbus.bus.address=unix:path=/dev/socket/dbus_ste
-
-# STE: UNSOL_CALL_RING is only sent once from RIL.
-# Android needs to generate more rings if needed.
-ro.telephony.call_ring.multiple=false
 
 # STE: Hardware video codecs configuration
 ste.video.dec.mpeg4.in.size=8192
@@ -55,10 +77,3 @@ ste.cam.back.orientation=90
 ste.cam.ext.cfg.path.secondary=/system/usr/share/camera/config_file/aptina_mt9v113.dat
 # STE: Default trace configuration
 ste.omx.ctx=0
-
-persist.fuse_sdcard=true
-
-#
-# system prop for issue regarding writable directories(SDT)
-#
-ro.kernel.qemu=0
