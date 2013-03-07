@@ -79,10 +79,6 @@ BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
 
-# FM Radio
-BOARD_USES_STE_FMRADIO := true
-COMMON_GLOBAL_CFLAGS += -DSTE_FM
-
 # USB Mounting
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun%d/file"
