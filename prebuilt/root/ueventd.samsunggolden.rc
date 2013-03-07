@@ -64,4 +64,11 @@
 /dev/socket/cops.socket   0777   nobody       nobody
 /dev/socket/cspsa_socket_CSPSA0   0666   root       root
 
+# Modem
+/dev/db8500-modem-trace   0600   root      root
+/dev/dbx500_mloader_fw   0600   root      root
+
+# MTP
+/dev/mtp_usb              0660   root       mtp
+
 /dev/block/mmcblk0p19     0660   system     system
