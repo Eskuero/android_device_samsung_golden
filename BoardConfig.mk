@@ -113,3 +113,9 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/golden/recovery/graphics.c
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 BOARD_HAS_NO_MISC_PARTITION := true
+
+# RIL
+BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
+
+#SPECIFIED SECRIL(need this to work??/)
+BOARD_USES_LIBSECRIL_STUB := true
