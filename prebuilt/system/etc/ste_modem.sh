@@ -62,6 +62,7 @@ echo "Synchronizing modem parameter & CAL data";
 
 MODEMFS_GUARD=/modemfs/GUARDFIL
 MODEMFS_RFHAL=/modemfs/RFHAL
+RFHALDEF_COPIED=/modemfs/rfhal_copied
 EFS_GUARD=/efs/GUARDFIL
 EFS_RFHAL=/efs/RFHAL
 
@@ -70,8 +71,12 @@ if ! ls $MODEMFS_GUARD > /dev/null ; then
  		echo "There is no CAL data. Copy the default modem CAL data to modemfs partition.";
 		if ! ls $MODEMFS_RFHAL > /dev/null ; then
 			cp -r /efs/RFHAL.DEF /modemfs/RFHAL
-#		else
-#			cp -r /efs/RFHAL.DEF/* /modemfs/RFHAL/
+			echo 0 > $RFHALDEF_COPIED
+		else
+		  if ! ls $RFHALDEF_COPIED > /dev/null ; then
+			  cp -r /efs/RFHAL.DEF/* /modemfs/RFHAL/
+			  echo 0 > $RFHALDEF_COPIED
+		  fi
 		fi
 	else
 		echo "modemfs partition is erased. Copy the previous CAL data to modemfs partition.";
