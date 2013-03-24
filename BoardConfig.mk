@@ -92,6 +92,10 @@ WIFI_DRIVER_MODULE_AP_ARG := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin_b2
 WIFI_BAND := 802_11_ABG
 BOARD_HAVE_SAMSUNG_WIFI := true
 
+# RIL
+BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
+BOARD_USES_LIBSECRIL_STUB := true
+
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
@@ -113,9 +117,3 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/golden/recovery/graphics.c
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 BOARD_HAS_NO_MISC_PARTITION := true
-
-# RIL
-BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
-
-#SPECIFIED SECRIL(need this to work??/)
-BOARD_USES_LIBSECRIL_STUB := true
