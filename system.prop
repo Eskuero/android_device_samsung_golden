@@ -17,9 +17,9 @@ ro.telephony.call_ring.multiple=false
 ### USB ###
 ###########
 ro.adb.qemud=1
-persist.sys.usb.config=mass_storage,adb
+persist.sys.usb.config=mtp,adb
 persist.service.adb.enable=1
-#persist.fuse_sdcard=true
+persist.fuse_sdcard=true
 
 ############
 ### Wifi ###
