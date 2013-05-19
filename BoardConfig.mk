@@ -25,7 +25,6 @@ TARGET_NO_RADIOIMAGE := true
 
 # Platform 
 TARGET_BOARD_PLATFORM := montblanc
-TARGET_SOC := u8500
 BOARD_USES_STE_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DSTE_HARDWARE
 
@@ -59,7 +58,6 @@ BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
-BOARD_USES_HWCOMPOSER := true
 
 # Screen
 TARGET_SCREEN_HEIGHT := 800
@@ -71,7 +69,6 @@ BOARD_USES_PROPRIETARY_OMX := samsung
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-USE_BLUETOOTH_SAP := true
 
 # Wifi
 BOARD_WLAN_DEVICE := bcmdhd
@@ -91,10 +88,6 @@ WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin_b2 nvra
 WIFI_DRIVER_MODULE_AP_ARG := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin_b2 nvram_path=/system/etc/wifi/nvram_net.txt_GPIO4"
 WIFI_BAND := 802_11_ABG
 BOARD_HAVE_SAMSUNG_WIFI := true
-
-# RIL
-BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
-BOARD_USES_LIBSECRIL_STUB := true
 
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
