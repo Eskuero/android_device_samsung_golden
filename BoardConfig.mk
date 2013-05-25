@@ -49,7 +49,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/golden
-TARGET_KERNEL_CONFIG := golden_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_golden_defconfig
 BOARD_KERNEL_CMDLINE :=
 TARGET_USE_ST_ERICSSON_KERNEL := true
 BOARD_KERNEL_BASE := 0x00000000
