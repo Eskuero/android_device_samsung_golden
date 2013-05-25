@@ -33,9 +33,7 @@ $(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    audio.usb.default \
-    libtinyalsa \
-    libaudioutils
+    audio.usb.default
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -45,7 +43,6 @@ PRODUCT_PACKAGES += \
 # Applications
 PRODUCT_PACKAGES += \
     Torch \
-    Superuser \
     com.android.future.usb.accessory
 
 # Misc props
@@ -59,7 +56,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Define kind of DPI
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
-PRODUCT_LOCALES += hdpi
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
