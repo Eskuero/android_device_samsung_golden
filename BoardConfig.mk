@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/golden/include
+#TARGET_SPECIFIC_HEADER_PATH := device/samsung/golden/include
 TARGET_OTA_ASSERT_DEVICE := golden,i8190,GT-I8190
 
 # Board
