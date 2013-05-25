@@ -148,10 +148,6 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/cspsa.conf:system/etc/cspsa.conf \
     device/samsung/golden/prebuilt/system/etc/ste_modem.sh:system/etc/ste_modem.sh
 
-# USB Init
-PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/bin/usbid_init.sh:system/bin/usbid_init.sh
-
 # Wifi
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
