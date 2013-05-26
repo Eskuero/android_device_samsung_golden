@@ -15,6 +15,19 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
-include $(CLEAR_VARS)
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Device identifier
+PRODUCT_DEVICE := golden
+PRODUCT_NAME := full_golden
+PRODUCT_BRAND := samsung
+PRODUCT_MODEL := GT-I8190
+PRODUCT_MANUFACTURER := samsung
+
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/samsung/golden/device.mk)
+$(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)

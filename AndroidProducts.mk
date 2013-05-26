@@ -16,4 +16,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/golden.mk
+    $(LOCAL_DIR)/full_golden.mk

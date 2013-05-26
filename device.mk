@@ -15,20 +15,15 @@
 # limitations under the License.
 #
 
+# Add overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/golden/overlay
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, build/target/product/full_base_telephony.mk)
-$(call inherit-product, build/target/product/languages_full.mk)
+# Define kind of DPI
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# The GPS config appropriate for this device
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
-
-# Use the Dalvik VM specific for devices with 1024 MB of RAM
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
-# Inherit the proprietary vendors
-$(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
+# We have enough storage space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -40,25 +35,10 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
-# Applications
+# Misc packages
 PRODUCT_PACKAGES += \
-    Torch \
-    com.android.future.usb.accessory
-
-# Misc props
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.locationfeatures=1 \
-    ro.setupwizard.mode=OPTIONAL \
-    ro.setupwizard.enable_bypass=1 \
-    net.bt.name=Android \
-    ro.config.sync=yes
-
-# Define kind of DPI
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-# We have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
+    com.android.future.usb.accessory \
+    macloader
 
 # Hardware specific permissions
 PRODUCT_COPY_FILES += \
@@ -98,29 +78,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
 
-# Keylayout and touchscreen configs
-PRODUCT_COPY_FILES += \
-device/samsung/golden/prebuilt/system/usr/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \
-    device/samsung/golden/prebuilt/system/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
-    device/samsung/golden/prebuilt/system/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
-    device/samsung/golden/prebuilt/system/usr/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm \
-    device/samsung/golden/prebuilt/system/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/golden-kp.kl:system/usr/keylayout/golden-kp.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_04e8_Product_7021.kl:system/usr/keylayout/Vendor_04e8_Product_7021.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \
-    device/samsung/golden/prebuilt/system/usr/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \
-    device/samsung/golden/prebuilt/system/usr/idc/qwerty.idc:system/usr/idc/qwerty.idc \
-    device/samsung/golden/prebuilt/system/usr/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
-    
 # Copy ramdisk stuff
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/init.rc:root/init.rc \
@@ -128,14 +85,11 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/init.samsunggolden.rc:root/init.samsunggolden.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
     device/samsung/golden/prebuilt/root/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc \
-    device/samsung/golden/recovery/recovery.rc:root/recovery.rc \
-    device/samsung/golden/prebuilt/root/prerecovery.rc:root/prerecovery.rc \
-    device/samsung/golden/prebuilt/root/lpm.rc:root/lpm.rc \
     device/samsung/golden/prebuilt/root/fstab.samsunggolden:root/fstab.samsunggolden \
     device/samsung/golden/prebuilt/root/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
     device/samsung/golden/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko
 
-# OMXLoader
+# OMXLoaders
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
 
@@ -147,10 +101,11 @@ PRODUCT_COPY_FILES += \
 # Wifi
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
-PRODUCT_PACKAGES += \
-    macloader
 
 # Audio
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
     device/samsung/golden/prebuilt/system/etc/asound.conf:system/etc/asound.conf
+
+# Dalvik config
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
