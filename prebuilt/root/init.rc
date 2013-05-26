@@ -9,19 +9,13 @@ import /init.usb.rc
 import /init.trace.rc
 
 on early-init
+    # Set init and its forked children's oom_adj.
+    write /proc/1/oom_adj -16
+
     start ueventd
-    export EXTERNAL_STORAGE /storage/sdcard0
-    mkdir /storage 0550 system sdcard_r
-    mkdir /storage/sdcard0 0000 system system
+
 # create mountpoints
     mkdir /mnt 0775 root system
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
-# map "real" external storages paths also in same way. backwards compatibility.
-    symlink /storage/sdcard1 /mnt/sdcard1
-
-    export SECONDARY_STORAGE /storage/sdcard1
-    mkdir /storage/sdcard1 0000 system system
 
 on init
 
@@ -39,7 +33,7 @@ loglevel 3
     export ASEC_MOUNTPOINT /mnt/asec
     export LOOP_MOUNTPOINT /mnt/obb
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework2.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar
-#WTL_EDM
+
 # Backward compatibility
     symlink /system/etc /etc
     symlink /sys/kernel/debug /d
@@ -53,6 +47,7 @@ loglevel 3
     mount cgroup none /acct cpuacct
     mkdir /acct/uid
 
+    mkdir /system
     mkdir /data 0771 system system
     mkdir /cache 0771 system cache
     mkdir /config 0500 root root
@@ -79,12 +74,15 @@ loglevel 3
     write /proc/sys/kernel/hung_task_timeout_secs 0
     write /proc/cpu/alignment 4
     write /proc/sys/kernel/sched_latency_ns 10000000
+    write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
     write /proc/sys/kernel/sched_compat_yield 1
     write /proc/sys/kernel/sched_child_runs_first 0
     write /proc/sys/kernel/randomize_va_space 2
     write /proc/sys/kernel/kptr_restrict 2
     write /proc/sys/kernel/dmesg_restrict 1
     write /proc/sys/vm/mmap_min_addr 32768
+    write /proc/sys/kernel/sched_rt_runtime_us 950000
+    write /proc/sys/kernel/sched_rt_period_us 1000000
 
 # Create cgroup mount points for process groups
     mkdir /dev/cpuctl
@@ -114,7 +112,6 @@ loglevel 3
 # Allow everybody to read the xt_qtaguid resource tracking misc dev.
 # This is needed by any process that uses socket tagging.
     chmod 0644 /dev/xt_qtaguid
-    setprop ro.kernel.qemu 0
 
 on fs
 # mount mtd partitions
@@ -125,6 +122,8 @@ on fs
     mount yaffs2 mtd@cache /cache nosuid nodev
 
 on post-fs
+    # once everything is setup, no need to modify /
+    mount rootfs rootfs / ro remount
 
     # We chown/chmod /cache again so because mount is run as root + defaults
     chown system cache /cache
@@ -147,15 +146,7 @@ on post-fs
     # create the lost+found directories, so as to enforce our permissions
     mkdir /cache/lost+found 0770 root root
 
-    symlink /dev/block/mmcblk0p19 /dev/block/param
-
 on post-fs-data
-    setprop ro.revision 106
-
-    # we will remap this as /mnt/sdcard with the sdcard fuse tool
-    mkdir /data/media 0775 media_rw media_rw
-    chown media_rw media_rw /data/media
-
     # We chown/chmod /data again so because mount is run as root + defaults
     chown system system /data
     chmod 0771 /data
@@ -178,25 +169,16 @@ on post-fs-data
 
     # create basic filesystem structure
     mkdir /data/misc 01771 system misc
+    mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
+    mkdir /data/misc/bluetooth 0770 system system
     mkdir /data/misc/keystore 0700 keystore keystore
     mkdir /data/misc/keychain 0771 system system
     mkdir /data/misc/vpn 0770 system vpn
     mkdir /data/misc/systemkeys 0700 system system
+    # give system access to wpa_supplicant.conf for backup and restore
+    mkdir /data/misc/wifi 0770 wifi wifi
+    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/local 0751 root root
-
-# give system access to wpa_supplicant.conf for backup and restore
-    mkdir /data/misc/wifi 0770 wifi system
-    mkdir /efs/wifi 0775 radio system
-    mkdir /efs/bluetooth 0775 radio system
-    mkdir /efs/imei 0775 radio system
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/dhcp 0775 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
-    chown system system /efs/wifi/.mac.info
-    chmod 0664 /efs/wifi/.mac.info
-
-    # WIFI
-    setprop wifi.interface wlan0
 
     # For security reasons, /data/local/tmp should always be empty.
     # Do not place files or directories in /data/local/tmp
@@ -208,15 +190,9 @@ on post-fs-data
     mkdir /data/property 0700 root root
     mkdir /data/ssh 0750 root shell
     mkdir /data/ssh/empty 0700 root root
+    mkdir /data/radio 0770 radio radio
 
-# SA, System SW, SAMSUNG create log directory
-    mkdir /data/log 0775 system log
-    chown system log /data/log
-
-    chmod 0775 /data/log
-    chmod 0775 /data/anr
-
-    # create dalvik-cache, so as to enforce our permissions
+    # create dalvik-cache and double-check the perms, so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 system system
     chown system system /data/dalvik-cache
     chmod 0771 /data/dalvik-cache
@@ -233,37 +209,6 @@ on post-fs-data
     # the following directory.
     mkdir /data/drm 0770 drm drm
 
-#[ SEC_MM_DRM
-    # DRM directory creation
-    mkdir /system/etc/security/.drm 0775
-    chown root root /system/etc/security/.drm
-    chmod 0775 /system/etc/security/.drm
-
-    # Added for Playready DRM Support
-    mkdir /data/data/.drm 0775
-    chown drm system /data/data/.drm
-    chmod 0775 /data/data/.drm
-    mkdir /data/data/.drm/.playready 0775
-    chown drm system /data/data/.drm/.playready
-    chmod 0775 /data/data/.drm/.playready
-
-    # Added drm folder to copy drm plugins
-    mkdir /system/lib/drm 0775
-    chown root root /system/lib/drm
-    chmod 0775 /system/lib/drm
-
-    # DivX DRM
-    mkdir /efs/.files 0775
-    mkdir /efs/.files/.dx1 0775
-    mkdir /efs/.files/.dm33 0775
-    mkdir /efs/.files/.mp301 0775
-    chown media system /efs/.files/.dx1
-    chown media system /efs/.files/.dm33
-    chown media system /efs/.files/.mp301
-    chmod 0775 /efs/.files/.dx1
-    chmod 0775 /efs/.files/.dm33
-    chmod 0775 /efs/.files/.mp301
-#]
     # If there is no fs-post-data action in the init.<device>.rc file, you
     # must uncomment this line, otherwise encrypted filesystems
     # won't work.
@@ -274,11 +219,6 @@ on post-fs-data
     import /init.cm.rc
 
 on boot
-# SISO-ANDR-PERF :: START Changing governor to performance and scheduler to noop once boot is started
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor	performance
-    write /sys/block/mmcblk0/queue/scheduler noop
-# SISO-ANDR-PERF :: END HERE
-
 # basic network init
     ifup lo
     hostname localhost
@@ -307,6 +247,13 @@ on boot
     chown radio system /sys/android_power/acquire_full_wake_lock
     chown radio system /sys/android_power/acquire_partial_wake_lock
     chown radio system /sys/android_power/release_wake_lock
+    chown system system /sys/power/state
+    chown system system /sys/power/wakeup_count
+    chown radio system /sys/power/wake_lock
+    chown radio system /sys/power/wake_unlock
+    chmod 0660 /sys/power/state
+    chmod 0660 /sys/power/wake_lock
+    chmod 0660 /sys/power/wake_unlock
 
     chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
@@ -334,7 +281,21 @@ on boot
 
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/leds/keyboard-backlight/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/button-backlight/brightness
+    chown system system /sys/class/leds/jogball-backlight/brightness
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/module/sco/parameters/disable_esco
     chown system system /sys/kernel/ipv4/tcp_wmem_min
@@ -345,51 +306,20 @@ on boot
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
 
-# permissions for FMRadio of Broadcom
-    chmod 0777 /system/bin/btld
-
-# for bluetooth. change access rights as btld runs as bluetooth user
-    chown root bluetooth /sys/class/rfkill/rfkill0
-    chown root bluetooth /sys/class/rfkill/rfkill0/state
-    chown root bluetooth /sys/class/rfkill/rfkill0/claim	
-    chown root bluetooth /sys/class/rfkill/rfkill0/soft
-    chmod 0664 /sys/class/rfkill/rfkill0/state
-    chmod 0664 /sys/class/rfkill/rfkill0/claim
-    chmod 0664 /sys/class/rfkill/rfkill0/soft
-    setprop service.brcm.bt.pbap_mode btld
-#    copy /system/etc/local.prop /data/local.prop
-#    chown system bluetooth /data/local.prop
-#    chmod 0660 /data/local.prop
-    chown bluetooth /dev/ttyS2
-    chmod 0660 /dev/ttyS2
-
-# MTP device permission
-	chmod 0660 /dev/usb_mtp_gadget
-	chown system system /dev/usb_mtp_gadget
-
-# Audio (Earjack)
-    chown system radio /sys/class/audio/earjack/select_jack
-    chown system radio /sys/class/audio/earjack/key_state
-    chown system radio /sys/class/audio/earjack/state
-    chown media system /sys/class/audio/earjack/reselect_jack
-
-# NFC
-    setprop ro.nfc.port "I2C"
-    chmod 0600 /dev/pn547
-    chown nfc nfc /dev/pn547
-
 # Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.default 4096,87380,110208,4096,16384,110208
+    setprop net.tcp.buffersize.default 4096,87380,704512,4096,16384,110208
     setprop net.tcp.buffersize.wifi    524288,1048576,2097152,262144,524288,1048576
-    setprop net.tcp.buffersize.lte     524288,1048576,2560000,262144,524288,1220608
-    setprop net.tcp.buffersize.umts    4094,87380,110208,4096,16384,110208
-    setprop net.tcp.buffersize.hspa    4092,87380,704512,4096,16384,262144
-    setprop net.tcp.buffersize.hsupa   4092,87380,704512,4096,16384,262144
-    setprop net.tcp.buffersize.hsdpa   4092,87380,704512,4096,16384,110208
-    setprop net.tcp.buffersize.hspap   4092,87380,704512,4096,16384,262144
-    setprop net.tcp.buffersize.edge    4093,26280,35040,4096,16384,35040
-    setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
+    setprop net.tcp.buffersize.lte     4096,87380,1220608,4096,16384,563200
+    setprop net.tcp.buffersize.umts    4096,87380,563200,4096,16384,110208
+    setprop net.tcp.buffersize.hspa    4096,87380,704512,4096,16384,110208
+    setprop net.tcp.buffersize.hsupa   4096,87380,704512,4096,16384,262144
+    setprop net.tcp.buffersize.hsdpa   4096,87380,704512,4096,16384,262144
+    setprop net.tcp.buffersize.hspap   4096,87380,1220608,4096,16384,393216
+    setprop net.tcp.buffersize.edge    4096,26280,35040,4096,16384,35040
+    setprop net.tcp.buffersize.gprs    4096,8760,11680,4096,8760,11680
+    setprop net.tcp.buffersize.evdo    4096,87380,563200,4096,16384,262144
+    setprop net.tcp.buffersize.evdo_b  4096,87380,704512,4096,16384,262144
 
 # Set this property so surfaceflinger is not started by system_init
     setprop system_init.startsurfaceflinger 0
@@ -397,21 +327,17 @@ on boot
 # Run sysinit
     exec /system/bin/sysinit
 
+# Mount debugfs	 	
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+
     class_start core
     class_start main
-
-# debugfs
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 on nonencrypted
     class_start late_start
 
-# SISO-ANDR-PERF :: START Changing governor to interactive and scheduler to cfq after boot complete
-on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor	conservative
-    write /sys/block/mmcblk0/queue/scheduler cfq
-# SISO-ANDR-PERF :: END HERE
-
+on charger
+    class_start charger
 
 on property:vold.decrypt=trigger_reset_main
     class_reset main
@@ -439,10 +365,12 @@ service ueventd /sbin/ueventd
     class core
     critical
 
-#service console /system/bin/sh
-#    class core
-#    console
-#    disabled
+service console /system/bin/sh
+    class core
+    console
+    disabled
+    user shell
+    group log
 
 on property:ro.debuggable=1
     start console
@@ -470,7 +398,6 @@ service vold /system/bin/vold
     class core
     socket vold stream 0660 root mount
     ioprio be 2
-    socket dir_enc_report stream 0660 root mount
 
 service debuggerd /system/bin/debuggerd
     class main
@@ -480,7 +407,7 @@ service ril-daemon /system/bin/rild
     socket rild stream 660 root radio
     socket rild-debug stream 660 radio system
     user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log
+    group radio cache inet misc audio sdcard_r sdcard_rw qcom_oncrpc qcom_diag log
 
 service surfaceflinger /system/bin/surfaceflinger
     class main
@@ -499,12 +426,8 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
 service drm /system/bin/drmserver
     class main
     user drm
-# [ SEC_MM_DRM
-# fix
-    group system drm inet drmrpc sdcard_r sdcard_rw media_rw radio
-# org
-#   group drm system inet drmrpc sdcard_r
-# ]
+    group drm system inet drmrpc sdcard_r
+
 service bootanim /system/bin/bootanimation
     class main
     user graphics
@@ -512,18 +435,11 @@ service bootanim /system/bin/bootanimation
     disabled
     oneshot
 
-# Make sure we startup btld before hcid
 service btld /system/bin/logwrapper /system/bin/btld -hb 921600 -hp /dev/ttyS2 -lpm 0 -nice -7
     user root
     group bluetooth net_bt_admin
     disabled
     oneshot
-
-service media /system/bin/logwrapper /system/bin/mediaserver
-    class main
-    user media
-    group system audio camera inet net_bt net_bt_admin net_bw_acct drmrpc sdcard_rw sdcard_r
-    ioprio rt 4
 
 service installd /system/bin/installd
     class main
@@ -568,22 +484,3 @@ service mdnsd /system/bin/mdnsd
     socket mdnsd stream 0660 mdnsr inet
     disabled
     oneshot
-
-on property:ro.dumpstate.dmesg=1
-    write /proc/sys/kernel/dmesg_restrict 0
-
-service sdcard /system/bin/sdcard /data/media 1023 1023
-    class late_start
-
-on property:ro.dumpstate.dmesg=1
-    write /proc/sys/kernel/dmesg_restrict 0
-
-on property:ro.fuse_sdcard=true
-    start sdcard
-
-# This will make sure that sdcard service starts as late_start.
-on nonencrypted
-    setprop ro.fuse_sdcard ${persist.fuse_sdcard}
-
-on property:vold.decrypt=trigger_restart_framework
-    setprop ro.fuse_sdcard ${persist.fuse_sdcard}

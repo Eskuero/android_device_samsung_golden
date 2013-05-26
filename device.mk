@@ -86,11 +86,12 @@ PRODUCT_COPY_FILES += \
 # Copy ramdisk stuff
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/init.rc:root/init.rc \
-    device/samsung/golden/prebuilt/root/init.bt.rc:root/init.bt.rc \
+    device/samsung/golden/prebuilt/root/default.prop:root/default.prop \
     device/samsung/golden/prebuilt/root/init.samsunggolden.rc:root/init.samsunggolden.rc \
+    device/samsung/golden/prebuilt/root/init.samsunggolden.bt.rc:root/init.samsunggolden.bt.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
-    device/samsung/golden/prebuilt/root/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc \
     device/samsung/golden/prebuilt/root/fstab.samsunggolden:root/fstab.samsunggolden \
+    device/samsung/golden/prebuilt/root/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc \
     device/samsung/golden/prebuilt/root/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
     device/samsung/golden/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko
 
