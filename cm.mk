@@ -30,4 +30,3 @@ $(call inherit-product, device/samsung/golden/full_golden.mk)
 
 # Device specific
 PRODUCT_NAME := cm_golden
-PRODUCT_PACKAGES += Torch

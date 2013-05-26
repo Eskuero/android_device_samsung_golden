@@ -37,6 +37,7 @@ PRODUCT_PACKAGES += \
 
 # Misc packages
 PRODUCT_PACKAGES += \
+    Torch \
     com.android.future.usb.accessory \
     macloader
 
