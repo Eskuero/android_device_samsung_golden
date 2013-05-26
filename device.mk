@@ -78,6 +78,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
 
+# Keylayout configuration
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
+
 # Copy ramdisk stuff
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/root/init.rc:root/init.rc \
