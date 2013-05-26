@@ -77,137 +77,27 @@ Only the three quirks included above are recognized at this point:
 
 <MediaCodecs>
     <Decoders>
-        <MediaCodec name="OMX.ST.VFM.MPEG4Dec" >
-            <Type name="video/mp4v-es" />
-            <Type name="video/3gpp" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-        </MediaCodec>
-        <MediaCodec name="OMX.google.mpeg4.decoder" type="video/mp4v-es" />
-        <MediaCodec name="OMX.google.h263.decoder" type="video/3gpp" />
-        <MediaCodec name="OMX.ST.VFM.MPEG4HostDec" >
-            <Type name="video/3gpp-sw" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-        </MediaCodec>
-
-        <MediaCodec name="OMX.ST.VFM.H264Dec" >
-            <Type name="video/avc" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-        </MediaCodec>
-		<MediaCodec name="OMX.google.h264.decoder" type="video/avc" />
-		
-        <MediaCodec name="OMX.ST.VFM.VC1Dec" >
-            <Type name="video/vc1" />
-            <Type name="video/wvc1" />
-            <Type name="video/x-ms-wmv" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-        </MediaCodec>
-
-        <MediaCodec name="OMX.SEC.rv.dec" type="video/rv" >
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.wmv7.dec" type="video/x-ms-wmv7" >
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.wmv8.dec" type="video/x-ms-wmv8" >
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.h263sr.dec" type="video/sorenson" >
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.mp43.dec" type="video/mp43" >
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.vp8.dec" type="video/x-vnd.on2.vp8" >
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        
-        <MediaCodec name="OMX.google.vpx.decoder" type="video/x-vnd.on2.vp8" />
-
-        <MediaCodec name="OMX.SEC.amr.dec">
-            <Type name="audio/amr-wb" />
-            <Type name="audio/3gpp"  />
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-
-        <MediaCodec name="OMX.SEC.mp3.dec" type="audio/mpeg" >
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-
-       <MediaCodec name="OMX.SEC.mp3.dec" type="audio/mpeg-L1" >
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-
-        <MediaCodec name="OMX.SEC.mp3.dec" type="audio/mpeg-L2" >
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-
         <MediaCodec name="OMX.google.mp3.decoder" type="audio/mpeg" />
-
-        <MediaCodec name="OMX.google.mp3.decoder" type="audio/mpeg-L1" />
-
-        <MediaCodec name="OMX.google.mp3.decoder" type="audio/mpeg-L2" />
-        
-        <MediaCodec name="OMX.SEC.aac.dec" type="audio/mp4a-latm" >
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.flac.dec" type="audio/flac" >
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.ac3.dec" type="audio/ac3" >
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.wma.dec" type="audio/x-ms-wma" >
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-        <MediaCodec name="OMX.SEC.ra.dec" type="audio/ra" >
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="decoder-ignores-streamcorrupt-error" />
-        </MediaCodec>
-
-        <MediaCodec name="OMX.ST.mp3.decoder" type="audio/mpeg" />
-        <MediaCodec name="OMX.ST.aac.decoder" type="audio/mp4a-latm" />
         <MediaCodec name="OMX.google.amrnb.decoder" type="audio/3gpp" />
         <MediaCodec name="OMX.google.amrwb.decoder" type="audio/amr-wb" />
         <MediaCodec name="OMX.google.aac.decoder" type="audio/mp4a-latm" />
         <MediaCodec name="OMX.google.g711.alaw.decoder" type="audio/g711-alaw" />
         <MediaCodec name="OMX.google.g711.mlaw.decoder" type="audio/g711-mlaw" />
         <MediaCodec name="OMX.google.vorbis.decoder" type="audio/vorbis" />
-        <MediaCodec name="OMX.ST.AFM.decoder.wmapro_v10" type="audio/x-ms-wma" />
+
+        <MediaCodec name="OMX.google.mpeg4.decoder" type="video/mp4v-es" />
+        <MediaCodec name="OMX.google.h263.decoder" type="video/3gpp" />
+        <MediaCodec name="OMX.google.h264.decoder" type="video/avc" />
+        <MediaCodec name="OMX.google.vpx.decoder" type="video/x-vnd.on2.vp8" />
     </Decoders>
 
     <Encoders>
-        <MediaCodec name="OMX.ST.VFM.MPEG4Enc" >
-            <Type name="video/mp4v-es" />
-            <Type name="video/3gpp" />
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Quirk name="requires-store-metadata-before-idle" />
-        </MediaCodec>
-
-        <MediaCodec name="OMX.SEC.aac.enc" type="audio/mp4a-latm" />
-
-
-        <MediaCodec name="OMX.ST.VFM.H264Enc" type="video/avc" >
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Quirk name="requires-store-metadata-before-idle" />
-        </MediaCodec>
-
+        <MediaCodec name="OMX.google.aac.encoder" type="audio/mp4a-latm" />
         <MediaCodec name="OMX.google.amrnb.encoder" type="audio/3gpp" />
         <MediaCodec name="OMX.google.amrwb.encoder" type="audio/amr-wb" />
-        <MediaCodec name="OMX.google.aac.encoder" type="audio/mp4a-latm" />
+        <MediaCodec name="OMX.google.h263.encoder" type="video/3gpp" />
+        <MediaCodec name="OMX.google.h264.encoder" type="video/avc" />
+        <MediaCodec name="OMX.google.mpeg4.encoder" type="video/mp4v-es" />
         <MediaCodec name="OMX.google.flac.encoder" type="audio/flac" />
     </Encoders>
 </MediaCodecs>
