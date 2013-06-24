@@ -42,9 +42,6 @@ debug.sf.hw=1
 # such as Mali.
 debug.hwui.render_dirty_regions=false
 
-# This forces the system to fix every graphical issue, may slow down composition speed.
-persist.sys.use_dithering=2
-
 ##############
 ### Screen ###
 ##############
