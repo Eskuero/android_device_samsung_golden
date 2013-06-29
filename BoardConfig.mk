@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-#TARGET_SPECIFIC_HEADER_PATH := device/samsung/golden/include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/golden/include
 TARGET_OTA_ASSERT_DEVICE := golden,i8190,GT-I8190
 
 # Board
@@ -61,6 +61,10 @@ BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
+
+# Screen
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
