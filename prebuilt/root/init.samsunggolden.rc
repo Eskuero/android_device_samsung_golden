@@ -506,11 +506,16 @@ service stedump /system/bin/logwrapper /system/bin/stedump
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
-# TA Loader
+# AT daemon
 service atd /system/bin/at_core -mode normal -serial ttyAMA2
     class modem
     user root
     group radio audio
+
+# AT Distributor for factory test
+service at_distributor /system/bin/at_distributor
+    user root
+    group radio log
 
 service battery_params /system/xbin/battery_params
     class main
