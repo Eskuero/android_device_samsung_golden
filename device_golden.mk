@@ -117,7 +117,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures = 1 \
     ro.setupwizard.mode=OPTIONAL \
     ro.setupwizard.enable_bypass=1 \
-    net.bt.name=Android \
     ro.config.sync=yes
 
 # Define kind of DPI

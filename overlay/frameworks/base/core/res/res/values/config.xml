@@ -20,11 +20,6 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Package name providing network location support. -->
-    <string name="config_networkLocationProviderPackageName">com.google.android.location</string>
-
-    <!-- Package name providing geocoder API support. -->
-    <string name="config_geocodeProviderPackageName">com.google.android.location</string>
 
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
@@ -100,8 +95,4 @@
 
     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">false</bool>
-
-    <!-- Boolean indicating if current platform supports quick switch-on/off of
-         Bluetooth Module -->
-    <bool name="config_bluetooth_adapter_quick_switch">false</bool>
 </resources>
