@@ -61,6 +61,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := device/samsung/golden/prebuilt/system/lib/egl/egl.cfg
+BOARD_EGL_NEEDS_LEGACY_FB := true
 
 # Screen
 TARGET_SCREEN_HEIGHT := 800
@@ -96,6 +97,7 @@ ENABLE_WEBGL := true
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
+COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 
 # USB Mounting
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"

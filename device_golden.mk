@@ -63,6 +63,8 @@ PRODUCT_COPY_FILES += \
 # Wifi
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+PRODUCT_PACKAGES += \
+    libnetcmdiface
 
 # STE Modem and CSPSA
 PRODUCT_COPY_FILES += \
