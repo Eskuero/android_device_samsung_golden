@@ -1,0 +1,13 @@
+#!/system/bin/sh
+#
+# A simple script to copy and/or to enable calling of /system/lib/ste_omxcomponents in /system/lib dir
+#
+# Just copy the files, symlink doesn't work, don't force
+#
+BASE=/system/lib
+mount -o remount,rw /system
+for FILE in `egrep -v '(^#|^$)' /system/etc/omxlibs.txt`; do
+    ln -s $BASE/ste_omxcomponents/$FILE $BASE/$FILE
+done
+mount -o remount,ro /system
+exit 0

@@ -54,7 +54,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/samsung/golden/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
+    device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders \
+    device/samsung/golden/prebuilt/system/etc/omxlibs.txt:system/etc/omxlibs.txt \
+    device/samsung/golden/prebuilt/system/etc/init.d/01omx:system/etc/init.d/01omx
+
+# Egrep
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/bin/egrep:system/bin/egrep
 
 # Dbus
 PRODUCT_COPY_FILES += \
