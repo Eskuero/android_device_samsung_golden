@@ -524,6 +524,11 @@ service atd /system/bin/at_core -mode normal -serial ttyAMA2
     user root
     group radio audio
 
+# TA Loader
+service ta_load /system/bin/ta_loader
+    user root
+    group radio
+
 # AT Distributor for factory test
 service at_distributor /system/bin/at_distributor
     user root
