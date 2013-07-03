@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<mms_config version="4">
-    <bool name="enabledMMS">true</bool>
-    <int name="maxMessageSize">307200</int>
-    <int name="mmsHeaderSize">5120</int>
-    <int name="maxImageHeight">480</int>
-    <int name="maxImageWidth">640</int>
-</mms_config>
