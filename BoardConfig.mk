@@ -92,6 +92,9 @@ WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin_b2 nvra
 WIFI_DRIVER_MODULE_AP_ARG := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin_b2 nvram_path=/system/etc/wifi/nvram_net.txt_GPIO4"
 WIFI_BAND := 802_11_ABG
 
+# RIL
+BOARD_RIL_CLASS := ../../../device/samsung/golden/ril/
+
 # Browser
 ENABLE_WEBGL := true
 
