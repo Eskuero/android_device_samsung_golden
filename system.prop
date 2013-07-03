@@ -44,6 +44,11 @@ debug.hwui.render_dirty_regions=false
 # This forces the system to fix every graphical issue, may slow down composition speed.
 persist.sys.use_dithering=2
 
+# Stric mode is enabled by default on non-user builds, and forces to make flashes of red lines
+# around the borders of the screen when the UI composition is blocked for too much time. 
+# Disable it until we fix the original issue.
+persist.sys.strictmode.disable=1
+
 ##############
 ### Screen ###
 ##############
