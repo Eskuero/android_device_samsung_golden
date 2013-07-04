@@ -113,7 +113,6 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 
 # Recovery
-TARGET_PROVIDES_INIT_RC := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_INITRC = device/samsung/golden/recovery/recovery.rc
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/golden/recovery/graphics.c
