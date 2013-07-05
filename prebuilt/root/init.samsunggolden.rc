@@ -6,13 +6,10 @@ import /init.${ro.hardware}.bt.rc
 
 on init
 
-    # Internal emulated storage directory
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage 0550 system sdcard_r
     mkdir /storage/emulated 0555 root root
-
-    # External storage directory
-    mkdir /storage/sdcard1 0000 system system
+    mkdir /storage/sdcard1 0775 system system
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
     export SECONDARY_STORAGE /storage/sdcard1
@@ -283,7 +280,7 @@ on post-fs
 on post-fs-data
 
     # create basic filesystem structure
-    mkdir /data/media 0770 media_rw media_rw
+    mkdir /data/media 0775 media_rw media_rw
     chown media_rw media_rw /data/media
     mkdir /data/misc/psdata
     mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
@@ -467,6 +464,9 @@ service bluetoothd /system/bin/logwrapper /system/bin/bluetoothd -n -d
     group bluetooth net_bt_admin misc
     disabled
 
+# create virtual SD card at /mnt/sdcard, based on the /data/media directory
+# daemon will drop to user/group system/media_rw after initializing
+# underlying files in /data/media wil be created with user and group media_rw (1023)
 service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
     class late_start
 
