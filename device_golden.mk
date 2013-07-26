@@ -71,6 +71,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libnetcmdiface
 
+# RIL
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/etc/AT/manuf_id.cfg:system/etc/AT/manuf_id.cfg \
+    device/samsung/golden/prebuilt/system/etc/AT/model_id.cfg:system/etc/AT/model_id.cfg \
+    device/samsung/golden/prebuilt/system/etc/AT/system_id.cfg:system/etc/AT/system_id.cfg
+
 # STE Modem and CSPSA
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/cspsa.conf:system/etc/cspsa.conf \
