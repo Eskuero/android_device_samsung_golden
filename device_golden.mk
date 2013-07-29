@@ -82,6 +82,10 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/cspsa.conf:system/etc/cspsa.conf \
     device/samsung/golden/prebuilt/system/etc/ste_modem.sh:system/etc/ste_modem.sh
 
+# GPS
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/etc/sirfgps.conf:system/etc/sirfgps.conf
+
 # Audio
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
