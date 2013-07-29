@@ -108,4 +108,4 @@ sync
 # necessary device nodes were created by /system/etc/ste_audio_mknods.sh
 # prior to executing this command.
 echo "Starting Modem Storage Agent"
-exec /system/bin/logwrapper /system/bin/msa -l stdout
+exec /system/bin/msa -l stdout
