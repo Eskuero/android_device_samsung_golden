@@ -5,7 +5,9 @@
 BASE=/system/lib
 mount -o remount,rw /system
 for FILE in `egrep -v '(^#|^$)' /system/etc/omxlibs.txt`; do
+  if [ ! -f $BASE/$FILE ] then
     ln -s $BASE/ste_omxcomponents/$FILE $BASE/$FILE
+  fi
 done
 mount -o remount,ro /system
 exit 0
