@@ -32,7 +32,6 @@ $(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/root/default.prop:root/default.prop \
     device/samsung/golden/prebuilt/root/init.samsunggolden.rc:root/init.samsunggolden.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.bt.rc:root/init.samsunggolden.bt.rc \
     device/samsung/golden/prebuilt/root/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
