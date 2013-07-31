@@ -48,6 +48,8 @@ PRODUCT_COPY_FILES += \
 # Graphics
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/lib/egl/egl.cfg:system/lib/egl/egl.cfg
+PRODUCT_PACKAGES += \
+    libblt_hw
 
 # OMX
 PRODUCT_COPY_FILES += \
