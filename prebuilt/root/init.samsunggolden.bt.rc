@@ -14,7 +14,7 @@ service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2
     disabled
     oneshot
 
-service hciattach_le /system/bin/logwrapper /system/bin/brcm_patchram_plus --enable_hci --no2bytes --tosleep 50000 --baudrate 115200 --use_baudrate_for_download --patchram /system/bin/bcm4334.hcd /dev/ttyAMA0 -d
+service hciattach_le /system/bin/brcm_patchram_plus --enable_hci --no2bytes --tosleep 50000 --baudrate 115200 --use_baudrate_for_download --patchram /system/bin/bcm4334.hcd /dev/ttyAMA0 -d
     class main
     user bluetooth
     group bluetooth net_bt_admin

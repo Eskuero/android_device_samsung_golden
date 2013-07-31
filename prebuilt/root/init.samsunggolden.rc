@@ -436,18 +436,6 @@ on boot
     class_start modem
     class_start default
 
-service netd /system/bin/netd
-    class main
-    socket netd stream 0660 root system dbus_access
-    socket dnsproxyd stream 0660 root inet
-    socket mdns stream 0660 root system
-
-service media /system/bin/logwrapper /system/bin/mediaserver
-    class main
-    user media
-    group system audio camera inet net_bt net_bt_admin net_bw_acct drmrpc sdcard_rw sdcard_r
-    ioprio rt 4
-
 service dbus /system/bin/dbus-daemon --system --nofork
     class main
     socket dbus stream 660 bluetooth bluetooth
