@@ -1,4 +1,0 @@
-on boot
-    insmod /system/lib/modules/btlock.ko
-    chmod 664 /dev/btlock
-    chown bluetooth system /dev/btlock
