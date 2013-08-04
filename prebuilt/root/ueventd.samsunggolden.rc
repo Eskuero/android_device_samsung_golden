@@ -53,10 +53,6 @@
 # Trusted Execution Engine
 /dev/tee 0666 root system
 
-# Dbus
-/dev/socket/dbus 0660 bluetooth bluetooth
-/dev/socket/dbus_ste 0660 bluetooth dbus_access
-
 #cops&cpsa
 /dev/socket/cops.socket 0777 nobody nobody
 /dev/socket/cspsa_socket_CSPSA0 0666 root root

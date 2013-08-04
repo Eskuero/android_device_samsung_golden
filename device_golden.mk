@@ -56,10 +56,6 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
 
-# Dbus
-PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/dbus.conf:system/etc/dbus.conf
-
 # Bluetooth
 PRODUCT_COPY_FILES += \
     device/samsung/golden/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf

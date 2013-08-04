@@ -436,13 +436,6 @@ on boot
     class_start modem
     class_start default
 
-service dbus /system/bin/dbus-daemon --system --nofork
-    class main
-    socket dbus stream 660 bluetooth bluetooth
-    socket dbus_ste stream 660 bluetooth dbus_access
-    user bluetooth
-    group bluetooth net_bt_admin dbus_access
-
 service bluetoothd /system/bin/bluetoothd -n -d
     class main
     socket bluetooth stream 660 bluetooth bluetooth
