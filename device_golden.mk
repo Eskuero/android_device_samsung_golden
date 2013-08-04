@@ -66,6 +66,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/dbus.conf:system/etc/dbus.conf
 
+# Bluetooth
+PRODUCT_COPY_FILES += \
+    device/samsung/golden/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
 # Wifi
 PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
