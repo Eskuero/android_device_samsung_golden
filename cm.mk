@@ -33,4 +33,4 @@ PRODUCT_MANUFACTURER := samsung
 
 # Set build fingerprint and ID
 BUILD_ID := TRIANA00$(shell date -u +%Y%m%d)
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=cm_golden BUILD_FINGERPRINT=cyanogenmod/cm_golden/golden:4.1.2/$(BUILD_ID) PRIVATE_BUILD_DESC="GT-I8190 4.1.2"
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=cm_golden BUILD_FINGERPRINT=cyanogenmod/cm_golden/golden:4.2.2/$(BUILD_ID) PRIVATE_BUILD_DESC="GT-I8190 4.2.2"
