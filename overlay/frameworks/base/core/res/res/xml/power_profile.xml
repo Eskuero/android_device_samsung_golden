@@ -28,7 +28,7 @@
     <array name="cpu.speeds">
         <value>10000000</value> <!-- 1 Ghz CPU speed -->
         <value>800000</value> <!-- 800 MHz CPU speed -->
-        <value>500000</value> <!-- 500 MHz CPU speed -->
+        <value>400000</value> <!-- 400 MHz CPU speed -->
         <value>200000</value> <!-- 200 MHz CPU speed -->
     </array>
     <!-- Current when CPU is idle -->
@@ -37,7 +37,7 @@
     <array name="cpu.active">
         <value>408</value>
         <value>249</value>
-        <value>148</value>
+        <value>110</value>
         <value>55</value>
     </array>
     <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
