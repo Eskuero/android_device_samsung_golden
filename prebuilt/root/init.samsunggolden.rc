@@ -23,7 +23,6 @@ on init
     symlink /storage/sdcard1 /extSdCard
     symlink /storage/sdcard1 /mnt/extSdCard
 
-    export LD_LIBRARY_PATH /vendor/lib:/system/lib:/system/lib/ste_omxcomponents
     export OMX_STE_ENS_COMPONENTS_DIR /system/lib/ste_omxcomponents/
     export OMX_BELLAGIO_LOADER_REGISTRY /system/omxloaders
 
@@ -449,11 +448,6 @@ service cspsa /system/bin/cspsa-server
     user root
     oneshot
 
-# init Phonet net device required for Phonet communication with Modem
-service phonet-netdev /system/bin/ifconfig upnlink0 up
-    class main
-    oneshot
-
 # Copy RF trim data from CSPSA, and start the Modem Storage Agent (MSA) service
 service modem /system/bin/sh /system/etc/ste_modem.sh
     class modem-u8500
@@ -482,10 +476,6 @@ service admsrv /system/bin/admsrv
     ioprio rt 4
     capability NET_ADMIN NET_RAW SYS_NICE
 
-service stedump /system/bin/stedump
-    class main
-    user root
-
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
@@ -495,19 +485,10 @@ service atd /system/bin/at_core -mode normal -serial ttyAMA2
     user root
     group radio audio
 
-# TA Loader
-service ta_load /system/bin/ta_loader
-    user root
-    group radio
-
 # AT Distributor for factory test
 service at_distributor /system/bin/at_distributor
     user root
     group radio log
-
-service battery_params /system/xbin/battery_params
-    class main
-    oneshot
 
 # We must to setup two different services for p2p and wpa supplicants on bcm4334
 service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin
