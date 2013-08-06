@@ -67,14 +67,11 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_COPY_FILES += \
+    device/samsung/golden/prebuilt/system/etc/ste_modem.sh:system/etc/ste_modem.sh \
+    device/samsung/golden/prebuilt/system/etc/cspsa.conf:system/etc/cspsa.conf \
     device/samsung/golden/prebuilt/system/etc/AT/manuf_id.cfg:system/etc/AT/manuf_id.cfg \
     device/samsung/golden/prebuilt/system/etc/AT/model_id.cfg:system/etc/AT/model_id.cfg \
     device/samsung/golden/prebuilt/system/etc/AT/system_id.cfg:system/etc/AT/system_id.cfg
-
-# STE Modem and CSPSA
-PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/cspsa.conf:system/etc/cspsa.conf \
-    device/samsung/golden/prebuilt/system/etc/ste_modem.sh:system/etc/ste_modem.sh
 
 # GPS
 PRODUCT_COPY_FILES += \
