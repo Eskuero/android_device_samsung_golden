@@ -57,7 +57,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+    device/samsung/golden/prebuilt/system/etc/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 # Wifi
 PRODUCT_COPY_FILES += \
