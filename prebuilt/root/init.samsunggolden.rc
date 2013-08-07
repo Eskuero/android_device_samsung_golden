@@ -323,6 +323,9 @@ on early-boot
 
 on boot
 
+    # debugfs
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+
     # Set timeout value for rmnet stats.
     write /sys/devices/virtual/net/rmnet0/timeout_suspend 5000000
 
