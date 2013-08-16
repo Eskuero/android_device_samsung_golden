@@ -54,6 +54,8 @@ PRODUCT_COPY_FILES += \
     device/samsung/golden/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/samsung/golden/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
+PRODUCT_PACKAGES += \
+    libomxil-bellagio
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
