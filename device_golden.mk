@@ -15,121 +15,42 @@
 # limitations under the License.
 #
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/golden/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, build/target/product/full_base_telephony.mk)
-$(call inherit-product, build/target/product/languages_full.mk)
+# Inherit common configuration for Samsung u8500 devices
+$(call inherit-product-if-exists, device/samsung/u8500-common/common.mk)
 
-# The GPS config appropriate for this device
-$(call inherit-product, device/common/gps/gps_eu_supl.mk)
-
-# Use the Dalvik VM specific for devices with 1024 MB of RAM
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
-# Inherit the proprietary vendors
+# Inherit the proprietary vendors blobs for Samsung Golden
 $(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/root/init.samsunggolden.rc:root/init.samsunggolden.rc \
-    device/samsung/golden/prebuilt/root/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
-    device/samsung/golden/prebuilt/root/fstab.samsunggolden:root/fstab.samsunggolden \
-    device/samsung/golden/prebuilt/root/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc \
-    device/samsung/golden/prebuilt/root/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
-    device/samsung/golden/prebuilt/root/lib/modules/param.ko:root/lib/modules/param.ko
+    $(LOCAL_PATH)/rootdir/init.samsunggolden.rc:root/init.samsunggolden.rc \
+    $(LOCAL_PATH)/rootdir/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
+    $(LOCAL_PATH)/rootdir/fstab.samsunggolden:root/fstab.samsunggolden \
+    $(LOCAL_PATH)/rootdir/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc \
+    $(LOCAL_PATH)/rootdir/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
+    $(LOCAL_PATH)/rootdir/lib/modules/param.ko:root/lib/modules/param.ko
+
+# Recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/recovery.rc:root/init.recovery.samsunggolden.rc
 
 # TouchScreen & Inputs
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
-
-# Graphics
-PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/lib/egl/egl.cfg:system/lib/egl/egl.cfg
-PRODUCT_PACKAGES += \
-    libblt_hw
-
-# Media
-PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/samsung/golden/prebuilt/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    device/samsung/golden/prebuilt/system/omxloaders:system/omxloaders
-PRODUCT_PACKAGES += \
-    libomxil-bellagio
+    $(LOCAL_PATH)/configs/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
-# Wifi
-PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
-PRODUCT_PACKAGES += \
-    libnetcmdiface
+    $(LOCAL_PATH)/configs/etc/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 # RIL
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/ste_modem.sh:system/etc/ste_modem.sh \
-    device/samsung/golden/prebuilt/system/etc/cspsa.conf:system/etc/cspsa.conf \
-    device/samsung/golden/prebuilt/system/etc/AT/manuf_id.cfg:system/etc/AT/manuf_id.cfg \
-    device/samsung/golden/prebuilt/system/etc/AT/model_id.cfg:system/etc/AT/model_id.cfg \
-    device/samsung/golden/prebuilt/system/etc/AT/system_id.cfg:system/etc/AT/system_id.cfg
-
-# GPS
-PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/sirfgps.conf:system/etc/sirfgps.conf
-
-# Audio
-PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/samsung/golden/prebuilt/system/etc/asound.conf:system/etc/asound.conf
-PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.usb.default
-
-# Sensors
-PRODUCT_PACKAGES += \
-    lights.montblanc
+    $(LOCAL_PATH)/configs/etc/cspsa.conf:system/etc/cspsa.conf \
+    $(LOCAL_PATH)/configs/etc/AT/manuf_id.cfg:system/etc/AT/manuf_id.cfg \
+    $(LOCAL_PATH)/configs/etc/AT/model_id.cfg:system/etc/AT/model_id.cfg \
+    $(LOCAL_PATH)/configs/etc/AT/system_id.cfg:system/etc/AT/system_id.cfg
 
 # Vold
 PRODUCT_COPY_FILES += \
-    device/samsung/golden/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
-
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
-
-# Misc packages
-PRODUCT_PACKAGES += \
-    Torch \
-    com.android.future.usb.accessory
-
-# Non-device-specific props
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.locationfeatures = 1 \
-    ro.setupwizard.mode=OPTIONAL \
-    ro.setupwizard.enable_bypass=1 \
-    ro.config.sync=yes
-
-# Define kind of DPI
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
- 
-# We have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
+    $(LOCAL_PATH)/configs/etc/vold.fstab:system/etc/vold.fstab

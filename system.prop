@@ -15,9 +15,7 @@ ro.telephony.call_ring.multiple=false
 ###########
 ### USB ###
 ###########
-ro.adb.qemud=1
-persist.sys.usb.config=mtp,adb
-persist.service.adb.enable=1
+persist.sys.usb.config=mtp
 
 ############
 ### Wifi ###
@@ -64,9 +62,6 @@ ro.lcd_min_brightness=30
 #######################
 # STE: Low power audio - enable ULP mode
 ste.nmf.autoidle=1
-
-# STE: Address of DBus STE bus
-ste.dbus.bus.address=unix:path=/dev/socket/dbus_ste
 
 # STE: Hardware video codecs configuration
 ste.video.dec.mpeg4.in.size=8192
