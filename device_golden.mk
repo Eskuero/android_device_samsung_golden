@@ -15,42 +15,17 @@
 # limitations under the License.
 #
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-# Inherit common configuration for Samsung u8500 devices
-$(call inherit-product-if-exists, device/samsung/u8500-common/common.mk)
-
-# Inherit the proprietary vendors blobs for Samsung Golden
-$(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
+# Inherit common configuration for all Samsung Golden variants
+$(call inherit-product-if-exists, device/samsung/golden-common/device_golden-common.mk)
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.samsunggolden.rc:root/init.samsunggolden.rc \
     $(LOCAL_PATH)/rootdir/init.samsunggolden.usb.rc:root/init.samsunggolden.usb.rc \
-    $(LOCAL_PATH)/rootdir/fstab.samsunggolden:root/fstab.samsunggolden \
-    $(LOCAL_PATH)/rootdir/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc \
-    $(LOCAL_PATH)/rootdir/lib/modules/j4fs.ko:root/lib/modules/j4fs.ko \
-    $(LOCAL_PATH)/rootdir/lib/modules/param.ko:root/lib/modules/param.ko
-
-# Recovery
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/recovery.rc:root/init.recovery.samsunggolden.rc
-
-# TouchScreen & Inputs
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
-
-# Bluetooth
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/etc/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+    $(LOCAL_PATH)/rootdir/ueventd.samsunggolden.rc:root/ueventd.samsunggolden.rc
 
 # RIL
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/etc/cspsa.conf:system/etc/cspsa.conf \
     $(LOCAL_PATH)/configs/etc/AT/manuf_id.cfg:system/etc/AT/manuf_id.cfg \
     $(LOCAL_PATH)/configs/etc/AT/model_id.cfg:system/etc/AT/model_id.cfg \
     $(LOCAL_PATH)/configs/etc/AT/system_id.cfg:system/etc/AT/system_id.cfg
-
-# Vold
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/etc/vold.fstab:system/etc/vold.fstab
