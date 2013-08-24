@@ -18,6 +18,9 @@
 # Inherit common configuration for all Samsung Golden variants
 $(call inherit-product-if-exists, device/samsung/golden-common/device_golden-common.mk)
 
+# Inherit the proprietary vendors blobs for Samsung Golden.
+$(call inherit-product-if-exists, vendor/samsung/golden/golden-vendor.mk)
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.samsunggolden.rc:root/init.samsunggolden.rc \

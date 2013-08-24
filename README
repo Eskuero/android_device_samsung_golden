@@ -44,6 +44,8 @@
       <project name="OliverG96/android_device_samsung_u8500-common" path="device/samsung/u8500-common" />
       <project name="OliverG96/android_kernel_samsung_golden" path="kernel/samsung/golden" />
       <project name="OliverG96/android_vendor_samsung_golden" path="vendor/samsung/golden" />
+      <project name="OliverG96/android_vendor_samsung_golden-common" path="vendor/samsung/golden-common" />
+      <project name="OliverG96/android_vendor_samsung_u8500-common" path="vendor/samsung/u8500-common" />
       <project name="TeamCanjica/android_hardware_u8500" path="hardware/u8500" />
   </manifest>
 
