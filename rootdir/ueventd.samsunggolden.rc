@@ -53,6 +53,9 @@
 # Trusted Execution Engine
 /dev/tee 0666 root system
 
+# RFKILL control device
+/dev/rfkill 0644 system system
+
 #cops&cpsa
 /dev/socket/cops.socket 0777 nobody nobody
 /dev/socket/cspsa_socket_CSPSA0 0666 root root
