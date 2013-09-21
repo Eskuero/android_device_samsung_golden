@@ -12,10 +12,14 @@
     "target_path": "device/samsung/u8500-common"
   },
   {
+    "repository": "android_device_u8500-common",
+    "target_path": "device/u8500-common"
+  },
+  {
     "repository": "android_kernel_samsung_golden",
     "target_path": "kernel/samsung/golden"
- },
- {
+  },
+  {
    "repository": "android_vendor_samsung_golden",
    "target_path": "vendor/samsung/golden"
   }
