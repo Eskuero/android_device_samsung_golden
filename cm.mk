@@ -20,7 +20,7 @@ $(call inherit-product, vendor/cm/config/gsm.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/golden/device_golden.mk)
+$(call inherit-product, device/samsung/golden/golden.mk)
 
 # Device identifier
 PRODUCT_DEVICE := golden

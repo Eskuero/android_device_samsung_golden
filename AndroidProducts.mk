@@ -16,4 +16,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_golden.mk
+    $(LOCAL_DIR)/golden.mk
