@@ -56,6 +56,10 @@
   $ ./vendor/cm/get-prebuilts
 
 
+  - Pull all OMX fixes from gerrit:
+  $ ./device/samsung/golden/pull
+
+
   - Setup environment
 
   $ source build/envsetup.sh
