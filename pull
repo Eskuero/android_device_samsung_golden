@@ -1,14 +1,9 @@
 #!/bin/bash
 
 # Sync all the remote committed changes
-cd frameworks/av;
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/21/46421/3 && git cherry-pick FETCH_HEAD;
-cd ..;
-cd native;
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/20/46420/2 && git cherry-pick FETCH_HEAD;
-cd ..;cd ..;
+
+
 cd system/core;
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/32/45032/3 && git cherry-pick FETCH_HEAD;
+# Allow to load libs from /system/lib/ste_omxcomponents folder
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/07/46807/1 && git cherry-pick FETCH_HEAD;
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/74/51474/1 && git cherry-pick FETCH_HEAD
 cd ..;cd ..;
