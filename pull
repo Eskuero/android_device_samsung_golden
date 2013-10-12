@@ -6,4 +6,6 @@
 cd system/core;
 # Allow to load libs from /system/lib/ste_omxcomponents folder
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/07/46807/1 && git cherry-pick FETCH_HEAD;
+# Offline charging implementation by parsing cmdline arguments
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/18/51718/1 && git cherry-pick FETCH_HEAD
 cd ..;cd ..;
