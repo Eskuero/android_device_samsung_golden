@@ -15,14 +15,21 @@
 # limitations under the License.
 #
 
-# Inherit device configuration
-$(call inherit-product, device/samsung/golden/golden.mk)
-
-# Inherit some common COS stuff.
+# Specify phone tech before including full_phone
 $(call inherit-product, vendor/cos/config/gsm.mk)
 
-# Inherit some common COS stuff.
+# Release name
+PRODUCT_RELEASE_NAME := GT-I9100
+
+# Bootanimation
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+
+# Inherit some common CM stuff.
 $(call inherit-product, vendor/cos/config/common_full_phone.mk)
+
+# Inherit device configuration
+$(call inherit-product, device/samsung/golden/golden.mk)
 
 # Device identifier
 PRODUCT_DEVICE := golden
