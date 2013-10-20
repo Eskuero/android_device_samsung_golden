@@ -15,16 +15,18 @@
 # limitations under the License.
 #
 
-# Inherit CM common GSM/Phone stuff.
-$(call inherit-product, vendor/cm/config/gsm.mk)
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
-
 # Inherit device configuration
 $(call inherit-product, device/samsung/golden/golden.mk)
 
+# Inherit some common COS stuff.
+$(call inherit-product, vendor/cos/config/gsm.mk)
+
+# Inherit some common COS stuff.
+$(call inherit-product, vendor/cos/config/common_full_phone.mk)
+
 # Device identifier
 PRODUCT_DEVICE := golden
-PRODUCT_NAME := cm_golden
+PRODUCT_NAME := cos_golden
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := GT-I8190
 PRODUCT_MANUFACTURER := samsung
