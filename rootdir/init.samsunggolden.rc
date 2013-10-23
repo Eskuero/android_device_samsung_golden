@@ -1,7 +1,7 @@
 # NOTE: This file contains ST-Ericsson related additions/modifications/deletions to init.rc
 #       Commented out lines are kept for reference.
 
-import /init.samsung-u8500.usb.rc
+import /init.samsunggolden.usb.rc
 
 on init
 
