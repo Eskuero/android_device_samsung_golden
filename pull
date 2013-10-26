@@ -11,8 +11,6 @@ cd native;
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/33/52033/3 && git cherry-pick FETCH_HEAD;
 cd ..; cd ..;
 cd system/core;
-# rootdir: Add support checking for libs under ste_omxcomponents
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/07/46807/1 && git cherry-pick FETCH_HEAD;
 # init: Allow load of lpm.rc by parsing a cmdline argument
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/18/51718/1 && git cherry-pick FETCH_HEAD;
 # include: Add support for STE multimedia - Part 3
