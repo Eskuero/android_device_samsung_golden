@@ -267,13 +267,13 @@ on post-fs
     chmod 0660 /debug/prcmu/ddr_opp
 
     # Install Kernel Module
-    insmod /lib/modules/j4fs.ko
+    insmod /system/lib/modules/j4fs.ko
 
     # We need to decide j4fs's partition number(mmcblk0pX)
     mount j4fs /dev/block/mmcblk0p19 /mnt/.lfs wait
     symlink /dev/block/mmcblk0p19 /dev/block/param
 
-    insmod /lib/modules/param.ko
+    insmod /system/lib/modules/param.ko
     insmod /system/lib/modules/bthid.ko
 
     # AB8500 Fuelgauge initialization using PARAM capacity

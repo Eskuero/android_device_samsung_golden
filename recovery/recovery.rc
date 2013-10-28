@@ -31,12 +31,12 @@ on early-fs
     mkdir /mnt 0775 root root
     mkdir /mnt/.lfs 0755 root root
 
-    insmod /lib/modules/j4fs.ko
+    insmod /system/lib/modules/j4fs.ko
     # We need to decide j4fs's partition number(mmcblk0pX)
     # loke4
     mount j4fs /dev/block/mmcblk0p19 /mnt/.lfs wait
 
-    insmod /lib/modules/param.ko
+    insmod /system/lib/modules/param.ko
 
 on boot
 
