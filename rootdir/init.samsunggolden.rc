@@ -315,9 +315,6 @@ on post-fs-data
 
 on early-boot
 
-    # Launch core services in case charging mode is entered
-    start watchdog-kicker
-
     # Prepare modem
     class_start modem-u8500
     class_start modem-core
