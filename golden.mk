@@ -47,7 +47,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     debug.hwui.render_dirty_regions=false \
-    ro.bq.gpu_to_cpu_unsupported=1 \
     persist.sys.use_dithering=2 \
     persist.sys.strictmode.disable=1
 
