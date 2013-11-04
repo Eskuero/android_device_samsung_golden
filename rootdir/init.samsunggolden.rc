@@ -254,13 +254,7 @@ on post-fs
     chown system radio /sys/class/sensors/light_sensor/vendor
     chown system radio /sys/class/sensors/light_sensor/name
 
-# DVFS LOCK
-    chown radio system /sys/power/cpufreq_table
-    chown radio system /sys/power/cpufreq_max_limit
-    chown radio system /sys/power/cpufreq_min_limit
-    chmod 0660 /sys/power/cpufreq_table
-    chmod 0660 /sys/power/cpufreq_max_limit
-    chmod 0660 /sys/power/cpufreq_min_limit
+# PRCMU debug fs
     chown radio system /debug/prcmu/ape_opp
     chown radio system /debug/prcmu/ddr_opp
     chmod 0660 /debug/prcmu/ape_opp
