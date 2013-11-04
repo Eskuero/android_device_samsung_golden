@@ -8,7 +8,7 @@ git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/c
 cd ..;
 cd native;
 # include: Add support for STE multimedia - Part 2
-git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/33/52033/3 && git cherry-pick FETCH_HEAD;
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/33/52033/4 && git cherry-pick FETCH_HEAD;
 cd ..; cd ..;
 cd system/core;
 # init: Allow load of lpm.rc by parsing a cmdline argument
