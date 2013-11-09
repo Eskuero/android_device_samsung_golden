@@ -42,7 +42,6 @@
       <project name="OliverG96/android_device_samsung_golden" path="device/samsung/golden" />
       <project name="OliverG96/android_kernel_samsung_golden" path="kernel/samsung/golden" />
       <project name="OliverG96/android_vendor_samsung_golden" path="vendor/samsung/golden" />
-      <project name="TeamCanjica/android_hardware_u8500" path="hardware/u8500" />
   </manifest>
 
   $ repo sync
