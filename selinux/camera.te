@@ -1,2 +1,0 @@
-type camera, domain;
-allow camera camera_device:chr_file rw_file_perms;

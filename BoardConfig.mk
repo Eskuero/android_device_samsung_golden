@@ -105,16 +105,6 @@ BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 BOARD_LPM_BOOT_ARGUMENT_NAME := lpm_boot
 BOARD_LPM_BOOT_ARGUMENT_VALUE := 1
 
-# Selinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/golden/selinux
-
-BOARD_SEPOLICY_UNION += \
-    camera.te \
-    device.te \
-    domain.te \
-    file_contexts
-
 # Recovery
 BOARD_UMS_LUNFILE := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun0/file"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/musb-ux500.0/musb-hdrc/gadget/lun%d/file"

@@ -1,5 +1,0 @@
-# Composition devices
-allow domain gfx_device:chr_file rw_file_perms;
-
-# RFKILL control device for wpa supplicant and bluetooth
-allow wpa rfkill_device:chr_file rw_file_perms;
