@@ -3,11 +3,11 @@
 # Sync all the remote committed changes
 
 cd frameworks/av;
-# include: Add support for STE multimedia - Part 1
+# av: Add support for STE multimedia - Part 1
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_av refs/changes/32/52032/3 && git cherry-pick FETCH_HEAD;
 cd ..;
 cd native;
-# include: Add support for STE multimedia - Part 2
+# native: Add support for STE multimedia - Part 2
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_frameworks_native refs/changes/33/52033/5 && git cherry-pick FETCH_HEAD;
 cd ..; cd ..;
 cd system/core;
@@ -15,4 +15,8 @@ cd system/core;
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/18/51718/1 && git cherry-pick FETCH_HEAD;
 # include: Add support for STE multimedia - Part 3
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/2 && git cherry-pick FETCH_HEAD;
-cd ..;cd ..;
+cd ..; cd ..;
+cd packages/apps/Phone;
+# Phone: Reset volume stream for low volume in call bug (FIXME: Too hacky)
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_packages_apps_Phone refs/changes/69/54069/1 && git cherry-pick FETCH_HEAD;
+cd ..; cd ..; cd ..;
