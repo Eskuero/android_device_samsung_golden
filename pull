@@ -16,3 +16,7 @@ git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/cha
 # include: Add support for STE multimedia - Part 3
 git fetch http://review.cyanogenmod.org/CyanogenMod/android_system_core refs/changes/34/52034/2 && git cherry-pick FETCH_HEAD;
 cd ..; cd ..;
+cd packages/apps/Phone;
+# Phone: Reset volume stream for low volume in call bug (FIXME: Too hacky)
+git fetch http://review.cyanogenmod.org/CyanogenMod/android_packages_apps_Phone refs/changes/69/54069/1 && git cherry-pick FETCH_HEAD;
+cd ..; cd ..; cd ..;
