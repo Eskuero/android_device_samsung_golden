@@ -35,6 +35,18 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.samsunggolden:root/fstab.samsunggolden \
     $(LOCAL_PATH)/rootdir/lpm.rc:root/lpm.rc
 
+# Recovery ramdisk, libraries and modules.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/rootdir/init.rc:recovery/root/init.rc \
+    $(LOCAL_PATH)/recovery/rootdir/lpm.rc:recovery/root/lpm.rc \
+    $(LOCAL_PATH)/recovery/rootdir/ueventd.samsunggolden.rc:recovery/root/ueventd.samsunggolden.rc \
+    $(LOCAL_PATH)/recovery/rootdir/etc/twrp.fstab:recovery/root/etc/twrp.fstab \
+    $(LOCAL_PATH)/recovery/rootdir/sbin/libkeyutils.so:recovery/root/sbin/libkeyutils.so \
+    $(LOCAL_PATH)/recovery/rootdir/sbin/libsec_km.so:recovery/root/sbin/libsec_km.so \
+    $(LOCAL_PATH)/recovery/rootdir/sbin/libsec_ecryptfs.so:recovery/root/sbin/libsec_ecryptfs.so \
+    $(LOCAL_PATH)/recovery/rootdir/lib/modules/j4fs.ko:recovery/root/lib/modules/j4fs.ko \
+    $(LOCAL_PATH)/recovery/rootdir/lib/modules/param.ko:recovery/root/lib/modules/param.ko
+
 # Inputs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
