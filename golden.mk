@@ -37,9 +37,7 @@ PRODUCT_COPY_FILES += \
 
 # Recovery ramdisk, libraries and modules.
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/rootdir/init.rc:recovery/root/init.rc \
-    $(LOCAL_PATH)/recovery/rootdir/lpm.rc:recovery/root/lpm.rc \
-    $(LOCAL_PATH)/recovery/rootdir/ueventd.samsunggolden.rc:recovery/root/ueventd.samsunggolden.rc \
+    $(LOCAL_PATH)/recovery/rootdir/init.recovery.samsunggolden.rc:root/init.recovery.samsunggolden.rc \
     $(LOCAL_PATH)/recovery/rootdir/etc/twrp.fstab:recovery/root/etc/twrp.fstab \
     $(LOCAL_PATH)/recovery/rootdir/sbin/libkeyutils.so:recovery/root/sbin/libkeyutils.so \
     $(LOCAL_PATH)/recovery/rootdir/sbin/libsec_km.so:recovery/root/sbin/libsec_km.so \
