@@ -345,59 +345,7 @@ public class SamsungU8500RIL extends RIL implements CommandsInterface {
     }
 
     @Override
-    protected RILRequest findAndRemoveRequestFromList(int serial) {
-        long removalTime = System.currentTimeMillis();
-        long timeDiff = 0;
-
-        synchronized (mRequestList) {
-          Iterator<RILRequest> itr = mRequestList.iterator();
-
-            while ( itr.hasNext() ) {
-                RILRequest rr = itr.next();
-
-                if (rr.mSerial == serial) {
-                    itr.remove();
-                    if (mRequestMessagesWaiting > 0)
-                        mRequestMessagesWaiting--;
-                    return rr;
-                }
-                else
-                {
-                      // We need some special code here for the Samsung RIL,
-                      // which isn't responding to some requests.
-                      // We will print a list of such stale requests which
-                      // haven't yet received a response. If the timeout fires
-                      // first, then the wakelock is released without debugging.
-                    timeDiff = removalTime - rr.creationTime;
-                    if ( timeDiff > mWakeLockTimeout ) {
-                        Rlog.d(RILJ_LOG_TAG, "No response for [" + rr.mSerial + "] " +
-                                requestToString(rr.mRequest) + " after " + timeDiff + " milliseconds.");
-
-                        /* Don't actually remove anything for now. Consider uncommenting this to
-                           purge stale requests */
-
-                        /*
-                        itr.remove();
-                        if (mRequestMessagesWaiting > 0) {
-                            mRequestMessagesWaiting--;
-                        }
-
-                        // We don't handle the callback (ie. rr.mResult) for
-                        // RIL_REQUEST_SET_TTY_MODE, which is
-                        // RIL_REQUEST_QUERY_TTY_MODE. The reason for not doing
-                        // so is because it will also not get a response from the
-                        // Samsung RIL
-                        rr.release();
-                        */
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    @Override
-    protected void processSolicited (Parcel p) {
+    protected RILRequest processSolicited (Parcel p) {
     int serial, error;
     boolean found = false;
 
@@ -411,7 +359,7 @@ public class SamsungU8500RIL extends RIL implements CommandsInterface {
     if (rr == null) {
         Rlog.w(RILJ_LOG_TAG, "Unexpected solicited response! sn: "
                         + serial + " error: " + error);
-            return;
+            return null;
     }
 
     Object ret = null;
@@ -427,7 +375,7 @@ public class SamsungU8500RIL extends RIL implements CommandsInterface {
             case RIL_REQUEST_ENTER_SIM_PUK2: ret =  responseInts(p); break;
             case RIL_REQUEST_CHANGE_SIM_PIN: ret =  responseInts(p); break;
             case RIL_REQUEST_CHANGE_SIM_PIN2: ret =  responseInts(p); break;
-            case RIL_REQUEST_ENTER_DEPERSONALIZATION_CODE: ret =  responseInts(p); break;
+            case RIL_REQUEST_ENTER_NETWORK_DEPERSONALIZATION: ret =  responseInts(p); break;
             case RIL_REQUEST_GET_CURRENT_CALLS: ret =  responseCallList(p); break;
             case RIL_REQUEST_DIAL: ret =  responseVoid(p); break;
             case RIL_REQUEST_GET_IMSI: ret =  responseString(p); break;
@@ -543,8 +491,7 @@ public class SamsungU8500RIL extends RIL implements CommandsInterface {
                     AsyncResult.forMessage(rr.mResult, null, tr);
                     rr.mResult.sendToTarget();
                 }
-                rr.release();
-                return;
+                return rr;
             }
         }
 
@@ -553,8 +500,7 @@ public class SamsungU8500RIL extends RIL implements CommandsInterface {
             if(!(error == -1 && rr.mRequest == RIL_REQUEST_SEND_SMS))
             {
                 rr.onError(error, ret);
-                rr.release();
-                return;
+                return rr;
             } else {
                 try
                 {
@@ -564,8 +510,7 @@ public class SamsungU8500RIL extends RIL implements CommandsInterface {
                             + requestToString(rr.mRequest)
                             + " exception, Processing Samsung SMS fix ", tr);
                     rr.onError(error, ret);
-                    rr.release();
-                    return;
+                    return rr;
                 }
             }
         }
@@ -577,8 +522,7 @@ public class SamsungU8500RIL extends RIL implements CommandsInterface {
             AsyncResult.forMessage(rr.mResult, ret, null);
             rr.mResult.sendToTarget();
         }
-
-        rr.release();
+        return rr;
     }
 
     @Override
@@ -843,20 +787,6 @@ public class SamsungU8500RIL extends RIL implements CommandsInterface {
         }
 
         Collections.sort(response);
-
-        return response;
-    }
-
-    @Override
-    protected Object responseGetPreferredNetworkType(Parcel p) {
-        int [] response = (int[]) responseInts(p);
-
-        if (response.length >= 1) {
-            // Since this is the response for getPreferredNetworkType
-            // we'll assume that it should be the value we want the
-            // vendor ril to take if we reestablish a connection to it.
-            mPreferredNetworkType = response[0];
-        }
 
         return response;
     }
