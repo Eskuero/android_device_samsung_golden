@@ -135,6 +135,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.montblanc
 
+# Dalvik
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.zygote.disable_gl_preload=true
+
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
