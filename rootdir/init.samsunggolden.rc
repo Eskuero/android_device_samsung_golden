@@ -26,7 +26,6 @@ on init
 
     mkdir /modemfs 0771 system system
     mkdir /efs 0775 radio system
-    mkdir /preload 0771 system system
     # Shared memory file system
     mkdir /dev/shm 0700 root system
     mount tmpfs tmpfs /dev/shm mode=0755,gid=1000
