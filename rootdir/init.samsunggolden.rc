@@ -318,6 +318,11 @@ on boot
     # Set timeout value for rmnet stats.
     write /sys/devices/virtual/net/rmnet0/timeout_suspend 5000000
 
+    # KSM Parameters (TODO: Supply more permissions if they become tunable)
+    write /sys/kernel/mm/ksm/pages_to_scan 100
+    write /sys/kernel/mm/ksm/sleep_millisecs 500
+    write /sys/kernel/mm/ksm/run 1
+
     chown system system /sys/class/backlight/pri_lcd_bl/brightness
     chown system system /sys/class/backlight/pwm-backlight/brightness
     chown system radio /sys/class/backlight/pwm-backlight/device/lcd_power
