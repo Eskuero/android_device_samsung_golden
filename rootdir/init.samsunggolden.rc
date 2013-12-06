@@ -24,10 +24,6 @@ on init
     symlink /storage/sdcard1 /extSdCard
     symlink /storage/sdcard1 /mnt/extSdCard
 
-    export LD_LIBRARY_PATH /system/lib:/lib:/usr/lib:/system/lib/ste_omxcomponents:/vendor/lib
-    export OMX_STE_ENS_COMPONENTS_DIR /system/lib/ste_omxcomponents/
-    export OMX_BELLAGIO_LOADER_REGISTRY /system/omxloaders
-
     mkdir /modemfs 0771 system system
     mkdir /efs 0775 radio system
     mkdir /preload 0771 system system
