@@ -17,16 +17,16 @@
 <StorageList xmlns:android="http://schemas.android.com/apk/res/android">
 
 <!-- Internal emulated SDCard from /data/media -->
-    <storage android:mountPoint="/storage/sdcard0" 
-             android:storageDescription="@string/storage_internal" 
-             android:primary="true" 
-             android:emulated="true" 
+    <storage
+             android:storageDescription="@string/storage_internal"
+             android:emulated="true"
              android:mtpReserve="100" />
 
 <!-- External real SDCard -->
-    <storage android:mountPoint="/storage/sdcard1"
+    <storage
+             android:mountPoint="/storage/sdcard1"
              android:storageDescription="@string/storage_sd_card"
-             android:primary="false"
              android:removable="true"
-             android:allowMassStorage="true" />
+             android:maxFileSize="4096" />
+
 </StorageList>
