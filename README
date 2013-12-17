@@ -19,10 +19,10 @@
 
 * Description
 
-  This repository is for OmniROM (4.4) on Samsung Galaxy SIII Mini a.k.a Samsung Golden.
+  This repository is for OmniROM (4.4.2) on Samsung Galaxy SIII Mini a.k.a Samsung Golden.
   It's still a work in progress.
 
-* How To Build OmniROM (4.4) for Samsung Golden
+* How To Build OmniROM (4.4.2) for Samsung Golden
 
   - Make a workspace
 
@@ -56,7 +56,7 @@
   $ lunch omni_golden-eng
 
 
-  - Build OmniROM (4.4)
+  - Build OmniROM (4.4.2)
 
   $ export USE_CCACHE=1
   $ make -j4 bacon
