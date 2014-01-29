@@ -1,0 +1,22 @@
+on boot
+    insmod /system/lib/modules/btlock.ko
+    chmod 664 /dev/btlock
+    chown bluetooth system /dev/btlock
+
+service poke_helper /system/bin/brcm_poke_helper /dev/ttyAMA0
+    class main
+    group bluetooth net_bt_admin
+
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2bytes --tosleep 5000 --baudrate 3000000 -use_baudrate_for_download --patchram /system/bin/bcm4334.hcd /dev/ttyAMA0
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot
+
+service hciattach_le /system/bin/logwrapper /system/bin/brcm_patchram_plus --enable_hci --no2bytes --tosleep 50000 --baudrate 115200 --use_baudrate_for_download --patchram /system/bin/bcm4334.hcd /dev/ttyAMA0 -d
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
+    disabled
+    oneshot

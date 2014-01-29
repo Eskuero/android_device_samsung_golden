@@ -6,8 +6,8 @@
   {
     "repository": "android_kernel_samsung_golden",
     "target_path": "kernel/samsung/golden"
-  },
-  {
+ },
+ {
    "repository": "android_vendor_samsung_golden",
    "target_path": "vendor/samsung/golden"
   }
